@@ -1,22 +1,27 @@
 package HOB.frame;
 
-import HOB.util.setDefine;
+import HOB.Const.setDefine;
+import HOB.Const.stringConst;
+import HOB.Selections;
 
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.sound.sampled.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
 public class mainFrame extends JFrame{
+    private Clip clip;
+    public Selections selection;//全局设置
     public mainFrame() {    //构造方法
-        setTitle("枪林弹雨");   //设置标题
+        setTitle(stringConst.gameTitle);   //设置标题
+        selection = new Selections();//实例化全局设置
         setSize(setDefine.width, setDefine.height);  //设置宽高
         setResizable(false);    //不可调整大小
         Toolkit tool = Toolkit.getDefaultToolkit(); //创建系统默认工具包
@@ -25,7 +30,7 @@ public class mainFrame extends JFrame{
         setLocation((d.width - getWidth()) / 2, (d.height - getHeight()) / 2);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);// 关闭窗体时无操作
         addListener();// 添加事件监听
-        setPanel(new loginPanel(this));// 添加登陆面板
+        setPanel(new startPanel(this));// 添加登录面板
         setVisible(true);
     }
     /**
@@ -51,9 +56,6 @@ public class mainFrame extends JFrame{
      */
     public void setPanel(JPanel panel) {
         Container c = getContentPane();// 获取主容器对象
-        if(panel instanceof loginPanel) {
-            panel.addKeyListener((KeyListener) panel);
-        }
         c.removeAll();// 删除容器中所有组件
         c.add(panel);// 容器添加面板
         c.validate();// 容器重新验证所有组件

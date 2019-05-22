@@ -1,18 +1,10 @@
 package HOB.frame;
-import HOB.util.setDefine;
+import HOB.Const.setDefine;
 
-import java.applet.AudioClip;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Vector;
 
 import javax.swing.JPanel;
 
@@ -27,7 +19,6 @@ public class gamePanel extends JPanel implements KeyListener{
     public gamePanel(mainFrame frame) {
         this.frame = frame;
         frame.setSize(setDefine.width, setDefine.height);
-        //this.setSize(775, 600);
         setBackground(Color.BLACK);// 面板使用黑色背景
 
     }

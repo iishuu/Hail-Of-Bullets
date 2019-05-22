@@ -1,19 +1,18 @@
 package HOB.frame;
-import HOB.Const.*;
-import HOB.Selections;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
+
+import HOB.Const.imageConst;
+import HOB.Const.setDefine;
+import HOB.Const.stringConst;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-
-public class selectPanel extends JPanel implements KeyListener {
+public class manualPanel extends JPanel implements KeyListener {
     private static final long serialVersionUID = 1L;
     private static final int offsetX = setDefine.width/40;//所有x坐标的偏移量
     private static final int startX = setDefine.width/4 + 5*offsetX;//所有x坐标的偏移起点
@@ -23,10 +22,10 @@ public class selectPanel extends JPanel implements KeyListener {
 
     private Image backgroud;// 背景图片
     private Image selectBox;//选择框图片
-    private final int y1 = startY,
-            y2 = startY + 2*offsetY,
-            y3 = startY + 4*offsetY; //选择框可以选择的两个位置
-    private int selectBoxY = y1;
+    private final int y[] = {startY,
+            startY + 2*offsetY,
+            startY + 4*offsetY}; //选择框可以选择的三个位置
+    private int selectBoxY = y[stringConst.manualPanel.length-1];
     private mainFrame frame;// 主窗体
     private startPanel backFrame;//调用它的界面，用于避免内存爆掉
 
@@ -35,9 +34,9 @@ public class selectPanel extends JPanel implements KeyListener {
         Font font = new Font(stringConst.Font, Font.BOLD, setDefine.size);// 创建体字
         g.setFont(font);// 使用字体
         g.setColor(Color.BLACK);// 使用黑色
-        g.drawString(stringConst.selectPanel[0] + frame.selection.getLevel(), startX, y1);// 绘制第一行文字
-        g.drawString(frame.selection.Music(), startX, y2);// 绘制第二行文字
-        g.drawString(stringConst.selectPanel[3], startX, y3);// 绘制第三行文字
+        for(int i=1; i<stringConst.manualPanel.length; i++) {
+            g.drawString(stringConst.manualPanel[i], startX, y[i]);// 绘制第i行文字
+        }
         g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
 
     }
@@ -46,7 +45,7 @@ public class selectPanel extends JPanel implements KeyListener {
         frame.addKeyListener(this);// 主窗体载入键盘监听，本类已实现KeyListener接口
     }
 
-    public selectPanel(mainFrame frame, startPanel back) {
+    public manualPanel(mainFrame frame, startPanel back) {
         this.frame = frame;
         this.backFrame = back;
         addListener();// 添加组件监听
@@ -66,32 +65,8 @@ public class selectPanel extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();// 获取按下的按键值
         switch (code) {// 判断按键值
-            case KeyEvent.VK_UP:// 如果按下的是“↑”
-                switch (selectBoxY) {
-                    case y1 : selectBoxY = y3;break;
-                    case y2 : selectBoxY = y1;break;
-                    case y3 : selectBoxY = y2;break;
-                    default : selectBoxY = y1;break;
-                }
-                repaint();// 按键按下之后，需要重新绘图
-                break;
-            case KeyEvent.VK_DOWN:// 如果按下的是“↓”
-                switch (selectBoxY) {
-                    case y1 : selectBoxY = y2;break;
-                    case y2 : selectBoxY = y3;break;
-                    case y3 : selectBoxY = y1;break;
-                    default : selectBoxY = y1;break;
-                }
-                repaint();// 按键按下之后，需要重新绘图
-                break;
             case KeyEvent.VK_ENTER://如果按下回车
-                switch (selectBoxY) {
-                    case y1 : frame.selection.addLevel();break;//难度增加（循环）
-                    case y2 : frame.selection.switchMusic();break;//切换音乐开关
-                    case y3 : gotoBackPanel();break;//返回上层
-                    default : selectBoxY = y1;
-                }
-                repaint();
+                gotoBackPanel();
                 break;
             case KeyEvent.VK_ESCAPE:
                 gotoBackPanel();
