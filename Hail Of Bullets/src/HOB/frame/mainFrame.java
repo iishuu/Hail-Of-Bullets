@@ -1,27 +1,30 @@
 package HOB.frame;
 
-import HOB.Const.setDefine;
-import HOB.Const.stringConst;
-import HOB.Selections;
+import HOB.Const.*;
+import HOB.global.*;
 
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
-import javax.sound.sampled.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
 public class mainFrame extends JFrame{
-    private Clip clip;
     public Selections selection;//全局设置
-    public mainFrame() {    //构造方法
+    public audioPlayer musicPlayer;
+    public ioCrypto data;
+    public mainFrame() throws IOException {    //构造方法
         setTitle(stringConst.gameTitle);   //设置标题
-        selection = new Selections();//实例化全局设置
+        data = new ioCrypto(stringConst.dataUrl);
+        selection = new Selections(this);//实例化全局设置
+        musicPlayer = new audioPlayer(soundUrl.MAIN_MUSIC_UTIL, selection);
+        musicPlayer.play(soundUrl.MAIN_MUSIC_UTIL);
         setSize(setDefine.width, setDefine.height);  //设置宽高
         setResizable(false);    //不可调整大小
         Toolkit tool = Toolkit.getDefaultToolkit(); //创建系统默认工具包

@@ -1,5 +1,6 @@
 package HOB.frame;
 import HOB.Const.setDefine;
+import HOB.global.Selections;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -15,9 +16,13 @@ public class gamePanel extends JPanel implements KeyListener{
 
     Graphics g;
     private mainFrame frame;
+    int level;
+    Selections selections;
 
     public gamePanel(mainFrame frame) {
         this.frame = frame;
+        this.selections = frame.selection;
+        this.level = selections.getLevel(1);
         frame.setSize(setDefine.width, setDefine.height);
         setBackground(Color.BLACK);// 面板使用黑色背景
 

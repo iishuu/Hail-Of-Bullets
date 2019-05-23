@@ -1,5 +1,6 @@
 package HOB.frame;
 import HOB.Const.*;
+import HOB.global.audioPlayer;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -11,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.*;
 import javax.swing.JPanel;
 
 
@@ -25,6 +25,7 @@ public class startPanel extends JPanel implements KeyListener {
     private static final long serialVersionUID = 1L;
     private Image backgroud;// 背景图片
     private Image selectBox;//选择框图片
+    private audioPlayer sound;//点击音效
     private final int []y = {startY,
             startY + 2*offsetY,
             startY + 4*offsetY,
@@ -35,9 +36,6 @@ public class startPanel extends JPanel implements KeyListener {
     private final int y4 = startY + 6*offsetY;
     private int selectBoxY = y[0];
     private mainFrame frame;
-    Clip clickSound;//指针切换声
-    Clip doneSound;//确定声
-    //todo: 播放音频
     /**
      * 登陆面板构造方法
      *
@@ -46,10 +44,11 @@ public class startPanel extends JPanel implements KeyListener {
      */
     public startPanel(mainFrame frame) {
         this.frame=frame;
+        sound = new audioPlayer(frame.selection);//实例化音效
         addListener();// 添加组件监听
         try {
-            backgroud = ImageIO.read(new File(imageConst.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
-            selectBox = ImageIO.read(new File(imageConst.SELECT_BOX_IMAGE_URL));// 读取选择框图标
+            backgroud = ImageIO.read(new File(imageUrl.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+            selectBox = ImageIO.read(new File(imageUrl.SELECT_BOX_IMAGE_URL));// 读取选择框图标
       } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,6 +73,7 @@ public class startPanel extends JPanel implements KeyListener {
      */
     private void gotoGamePanel() {
         removeListener();// 主窗体删除键盘监听
+        frame.musicPlayer.stop();
         frame.setPanel(new gamePanel(frame));// 主窗体跳转至选项面板
     }
 
@@ -82,11 +82,11 @@ public class startPanel extends JPanel implements KeyListener {
      */
     private void gotoSelectionPanel() {
         removeListener();// 主窗体删除键盘监听
-        frame.setPanel(new selectPanel(frame, this));// 主窗体跳转至选项面板
+        frame.setPanel(new optionPanel(frame, this));// 主窗体跳转至选项面板
     }
     private void gotoManualPanel() {
         removeListener();// 主窗体删除键盘监听
-        frame.setPanel(new manualPanel(frame, this));// 主窗体跳转至说明面板
+        frame.setPanel(new rankPanel(frame, this));// 主窗体跳转至说明面板
     }
     /**
      * 添加组件监听
@@ -110,6 +110,8 @@ public class startPanel extends JPanel implements KeyListener {
         int code = e.getKeyCode();// 获取按下的按键值
         switch (code) {// 判断按键值
             case KeyEvent.VK_UP:// 如果按下的是“↑”
+            case KeyEvent.VK_W://或者'w'
+                sound.play(soundUrl.CLICK_SOUND_UTIL);//播放指针切换的声音
                 switch (selectBoxY) {
                     case y1 :
                         selectBoxY = y4;
@@ -130,6 +132,8 @@ public class startPanel extends JPanel implements KeyListener {
                 repaint();// 按键按下之后，需要重新绘图
                 break;
             case KeyEvent.VK_DOWN:// 如果按下的是“↓”
+            case KeyEvent.VK_S://或者's'
+                sound.play(soundUrl.CLICK_SOUND_UTIL);//播放指针切换的声音
                 switch (selectBoxY) {
                     case y1:
                         selectBoxY = y2;
@@ -150,6 +154,8 @@ public class startPanel extends JPanel implements KeyListener {
                 repaint();// 按键按下之后，需要重新绘图
                 break;
             case KeyEvent.VK_ENTER:// 如果按下的是“Enter”
+            case KeyEvent.VK_SPACE://或者空格
+                sound.play(soundUrl.DONE_SOUND_UTIL);
                 switch (selectBoxY) {
                     case y1:
                         gotoGamePanel();
@@ -168,6 +174,11 @@ public class startPanel extends JPanel implements KeyListener {
                         break;
                 }
                 repaint();// 按键按下之后，需要重新绘图
+                break;
+            case KeyEvent.VK_ESCAPE:
+                sound.play(soundUrl.DONE_SOUND_UTIL);
+                selectBoxY = y4;
+                repaint();
                 break;
         }
     }
