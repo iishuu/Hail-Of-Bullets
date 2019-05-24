@@ -1,6 +1,7 @@
 package HOB.frame;
 import HOB.Const.setDefine;
 import HOB.global.Selections;
+import HOB.model.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -13,7 +14,7 @@ public class gamePanel extends JPanel implements KeyListener{
     /**
      * 未完成
      */
-
+    character character;
     Graphics g;
     private mainFrame frame;
     int level;
@@ -27,6 +28,10 @@ public class gamePanel extends JPanel implements KeyListener{
         setBackground(Color.BLACK);// 面板使用黑色背景
 
     }
+    public character getCharacter() {
+        return this.character;
+    }
+
     public void keyPressed(KeyEvent e) {
 
     }
