@@ -16,25 +16,25 @@ import javax.swing.JPanel;
 
 
 public class mainFrame extends JFrame{
-    public Selections selection;//全局设置
-    public audioPlayer musicPlayer;
-    public ioCrypto data;
+    public Selections selection;//全局设置，只需要把this发过去即可访问
+    public audioPlayer musicPlayer;//这个是游戏开始前的背景音乐。不是全局的背景音乐，因为游戏界面另有背景音乐
+    public ioCrypto data;//这个是可以加密解密读写存档的模块
     public mainFrame() throws IOException {    //构造方法
         setTitle(stringConst.gameTitle);   //设置标题
-        data = new ioCrypto(stringConst.dataUrl);
+        data = new ioCrypto(urls.dataUrl);//初始化读写模块
         selection = new Selections(this);//实例化全局设置
-        musicPlayer = new audioPlayer(soundUrl.MAIN_MUSIC_UTIL, selection);
-        musicPlayer.play(soundUrl.MAIN_MUSIC_UTIL);
+        musicPlayer = new audioPlayer(urls.MAIN_MUSIC_UTIL, selection);//初始化背景音乐
+        musicPlayer.play(urls.MAIN_MUSIC_UTIL);//开始播放，一遍就够了
         setSize(setDefine.width, setDefine.height);  //设置宽高
         setResizable(false);    //不可调整大小
         Toolkit tool = Toolkit.getDefaultToolkit(); //创建系统默认工具包
         Dimension d = tool.getScreenSize(); // 获取屏幕尺寸，赋给一个二维坐标对象
         // 让主窗体在屏幕中间显示
-        setLocation((d.width - getWidth()) / 2, (d.height - getHeight()) / 2);
+        setLocation((d.width - getWidth()) / 2, (d.height - getHeight()) / 2);//初始化选择框的位置
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);// 关闭窗体时无操作
         addListener();// 添加事件监听
         setPanel(new startPanel(this));// 添加登录面板
-        setVisible(true);
+        setVisible(true);//可视
     }
     /**
      * 添加组件监听

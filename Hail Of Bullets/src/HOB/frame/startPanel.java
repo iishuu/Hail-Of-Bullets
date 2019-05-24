@@ -30,11 +30,11 @@ public class startPanel extends JPanel implements KeyListener {
             startY + 2*offsetY,
             startY + 4*offsetY,
             startY + 6*offsetY}; //便于遍历
-    private final int y1 = startY;
-    private final int y2 = startY + 2*offsetY;
-    private final int y3 = startY + 4*offsetY;
-    private final int y4 = startY + 6*offsetY;
-    private int selectBoxY = y[0];
+    private final int y1 = startY;//一号坑
+    private final int y2 = startY + 2*offsetY;//二号坑
+    private final int y3 = startY + 4*offsetY;//三号坑
+    private final int y4 = startY + 6*offsetY;//四号坑
+    private int selectBoxY = y1;//初始化为1号坑
     private mainFrame frame;
     /**
      * 登陆面板构造方法
@@ -46,9 +46,9 @@ public class startPanel extends JPanel implements KeyListener {
         this.frame=frame;
         sound = new audioPlayer(frame.selection);//实例化音效
         addListener();// 添加组件监听
-        try {
-            backgroud = ImageIO.read(new File(imageUrl.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
-            selectBox = ImageIO.read(new File(imageUrl.SELECT_BOX_IMAGE_URL));// 读取选择框图标
+        try {//异常处理，没有的话会报错
+            backgroud = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+            selectBox = ImageIO.read(new File(urls.SELECT_BOX_IMAGE_URL));// 读取选择框图标
       } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,7 +73,7 @@ public class startPanel extends JPanel implements KeyListener {
      */
     private void gotoGamePanel() {
         removeListener();// 主窗体删除键盘监听
-        frame.musicPlayer.stop();
+        frame.musicPlayer.stop();//停止播放游戏开始前的背景音乐
         frame.setPanel(new gamePanel(frame));// 主窗体跳转至选项面板
     }
 
@@ -84,7 +84,11 @@ public class startPanel extends JPanel implements KeyListener {
         removeListener();// 主窗体删除键盘监听
         frame.setPanel(new optionPanel(frame, this));// 主窗体跳转至选项面板
     }
-    private void gotoManualPanel() {
+
+    /**
+     * 跳转排名面板
+     */
+    private void gotoRankPanel() {
         removeListener();// 主窗体删除键盘监听
         frame.setPanel(new rankPanel(frame, this));// 主窗体跳转至说明面板
     }
@@ -94,13 +98,13 @@ public class startPanel extends JPanel implements KeyListener {
     private void addListener() {
         frame.addKeyListener(this);// 主窗体载入键盘监听，本类已实现KeyListener接口
     }
+
+    /**
+     * 移除组件监听
+     */
     private void removeListener() {
         frame.removeKeyListener(this);//主窗体删除键盘监听
     }
-    /*private void play(Clip clip) {//播放音效
-       clip.start();
-    }*/
-
     /**
      * 当按键按下时
      */
@@ -111,8 +115,8 @@ public class startPanel extends JPanel implements KeyListener {
         switch (code) {// 判断按键值
             case KeyEvent.VK_UP:// 如果按下的是“↑”
             case KeyEvent.VK_W://或者'w'
-                sound.play(soundUrl.CLICK_SOUND_UTIL);//播放指针切换的声音
-                switch (selectBoxY) {
+                sound.play(urls.CLICK_SOUND_UTIL);//播放指针切换的声音
+                switch (selectBoxY) {//选择框在哪里？
                     case y1 :
                         selectBoxY = y4;
                         break;
@@ -133,7 +137,7 @@ public class startPanel extends JPanel implements KeyListener {
                 break;
             case KeyEvent.VK_DOWN:// 如果按下的是“↓”
             case KeyEvent.VK_S://或者's'
-                sound.play(soundUrl.CLICK_SOUND_UTIL);//播放指针切换的声音
+                sound.play(urls.CLICK_SOUND_UTIL);//播放指针切换的声音
                 switch (selectBoxY) {
                     case y1:
                         selectBoxY = y2;
@@ -155,13 +159,13 @@ public class startPanel extends JPanel implements KeyListener {
                 break;
             case KeyEvent.VK_ENTER:// 如果按下的是“Enter”
             case KeyEvent.VK_SPACE://或者空格
-                sound.play(soundUrl.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_UTIL);
                 switch (selectBoxY) {
                     case y1:
                         gotoGamePanel();
                         break;
                     case y2:
-                        gotoManualPanel();
+                        gotoRankPanel();
                         break;
                     case y3:
                         gotoSelectionPanel();
@@ -176,7 +180,7 @@ public class startPanel extends JPanel implements KeyListener {
                 repaint();// 按键按下之后，需要重新绘图
                 break;
             case KeyEvent.VK_ESCAPE:
-                sound.play(soundUrl.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_UTIL);
                 selectBoxY = y4;
                 repaint();
                 break;

@@ -33,6 +33,10 @@ public class optionPanel extends JPanel implements KeyListener {
     private mainFrame frame;// 主窗体
     private startPanel backFrame;//调用它的界面，用于避免内存爆掉
 
+    /**
+     * 绘图方法
+     * @param g 是本对象的御用画师
+     */
     public void paint(Graphics g) {
         g.drawImage(backgroud, 0, 0, getWidth(), getHeight(), this);// 绘制背景图片，填满整个面板
         Font font = new Font(stringConst.Font, Font.BOLD, setDefine.size);// 创建体字
@@ -49,13 +53,18 @@ public class optionPanel extends JPanel implements KeyListener {
         frame.addKeyListener(this);// 主窗体载入键盘监听，本类已实现KeyListener接口
     }
 
+    /**
+     * 构造函数
+     * @param frame 主界面
+     * @param back 上一个界面，用于返回
+     */
     public optionPanel(mainFrame frame, startPanel back) {
         this.frame = frame;
         this.backFrame = back;
         addListener();// 添加组件监听
         try {
-            backgroud = ImageIO.read(new File(imageUrl.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
-            selectBox = ImageIO.read(new File(imageUrl.SELECT_BOX_IMAGE_URL));// 读取选择框图标
+            backgroud = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+            selectBox = ImageIO.read(new File(urls.SELECT_BOX_IMAGE_URL));// 读取选择框图标
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,6 +75,9 @@ public class optionPanel extends JPanel implements KeyListener {
         frame.data.writeInt(stringConst.optionKey[1], frame.selection.getLevel(0));
     }
 
+    /**
+     * 返回上一层
+     */
     private void gotoBackPanel() throws IOException {
         frame.setPanel(backFrame);//返回上一层
         frame.removeKeyListener(this);//删除本对象的键盘监听
@@ -73,13 +85,17 @@ public class optionPanel extends JPanel implements KeyListener {
         backFrame.repaint();//重新绘制上一层
         saveOptions();
     }
+
+    /**
+     * 键盘事件监听
+     */
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();// 获取按下的按键值
         switch (code) {// 判断按键值
             case KeyEvent.VK_W://如果按下w
             case KeyEvent.VK_UP:// 如果按下的是“↑”
                 System.out.println(frame.data.searchString("\'level"));
-                sound.play(soundUrl.CLICK_SOUND_UTIL);
+                sound.play(urls.CLICK_SOUND_UTIL);
                 switch (selectBoxY) {
                     case y1 : selectBoxY = y3;break;
                     case y2 : selectBoxY = y1;break;
@@ -90,7 +106,7 @@ public class optionPanel extends JPanel implements KeyListener {
                 break;
             case KeyEvent.VK_DOWN:// 如果按下的是“↓”
             case KeyEvent.VK_S://或者S
-                sound.play(soundUrl.CLICK_SOUND_UTIL);
+                sound.play(urls.CLICK_SOUND_UTIL);
                 switch (selectBoxY) {
                     case y1 : selectBoxY = y2;break;
                     case y2 : selectBoxY = y3;break;
@@ -101,7 +117,7 @@ public class optionPanel extends JPanel implements KeyListener {
                 break;
             case KeyEvent.VK_ENTER://如果按下回车
             case KeyEvent.VK_SPACE://或者空格
-                sound.play(soundUrl.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_UTIL);
                 switch (selectBoxY) {
                     case y1 : frame.selection.addLevel();break;//难度增加（循环）
                     case y2 : frame.selection.switchMusic();break;//切换音乐开关
@@ -117,7 +133,7 @@ public class optionPanel extends JPanel implements KeyListener {
                 repaint();
                 break;
             case KeyEvent.VK_ESCAPE:
-                sound.play(soundUrl.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_UTIL);
                 try {
                     gotoBackPanel();
                 } catch (IOException e1) {
