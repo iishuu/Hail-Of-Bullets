@@ -25,10 +25,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/HOB/model/Bullet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HOB/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
+            <state relative-caret-position="60">
               <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
             </state>
           </provider>
@@ -37,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HOB/frame/mainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
+            <state relative-caret-position="240">
               <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -49,10 +58,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HOB/frame/loginPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
+            <state relative-caret-position="270">
               <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2256#2257#0" expanded="true" />
                 <element signature="e#2329#2330#0" expanded="true" />
               </folding>
             </state>
@@ -62,7 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HOB/util/soundUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="120">
               <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
             </state>
           </provider>
@@ -71,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HOB/frame/gamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="902">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="210">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,21 +93,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HOB/util/setDefine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="120">
               <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HOB/frame/selectPanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
               <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#911#912#0" expanded="true" />
-                <element signature="e#984#985#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HOB/util/imageUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="120">
               <caret line="4" column="38" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="38" />
             </state>
           </provider>
@@ -122,6 +130,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -134,21 +145,23 @@
         <option value="$PROJECT_DIR$/src/HOB/util/setDefine.java" />
         <option value="$PROJECT_DIR$/src/HOB/frame/loginPanel.java" />
         <option value="$PROJECT_DIR$/src/HOB/frame/selectPanel.java" />
+        <option value="$PROJECT_DIR$/src/HOB/model/Bullet.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="85" />
     <option name="width" value="930" />
     <option name="height" value="1090" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,14 +185,7 @@
               <item name="Hail Of Bullets" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="HOB" type="462c0819:PsiDirectoryNode" />
-              <item name="frame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hail Of Bullets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hail Of Bullets" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="HOB" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -190,8 +196,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558367414208" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/HOB/frame.java" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558674577247" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/HOB/frame.java" />
   </component>
@@ -238,23 +244,25 @@
       <workItem from="1557901609528" duration="5000" />
       <workItem from="1558346755620" duration="7970000" />
       <workItem from="1558360946611" duration="5530000" />
+      <workItem from="1558674362898" duration="262000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15616000" />
+    <option name="totallyTimeSpent" value="15878000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="69" y="-7" width="1474" height="878" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
+      <window_info id="设计器" />
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.15183616" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.15348525" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.15127176" />
@@ -268,6 +276,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32931727" />
+      <window_info anchor="right" id="调色板" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -285,9 +294,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/HOB/model.java" />
     <entry file="file://$PROJECT_DIR$/src/HOB/frame.java" />
-    <entry file="file://$PROJECT_DIR$/src/HOB/model">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HOB/model" />
     <entry file="file://$PROJECT_DIR$/src/HOB/model/example.java" />
     <entry file="file://$PROJECT_DIR$/src/HOB/frame/example.java" />
     <entry file="file://$PROJECT_DIR$/Hail Of Bullets.iml">
@@ -297,21 +304,14 @@
     <entry file="file://$PROJECT_DIR$/images/login_background.png" />
     <entry file="file://$PROJECT_DIR$/src/HOB/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
+        <state relative-caret-position="60">
           <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HOB/util/soundUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HOB/frame/mainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
+        <state relative-caret-position="240">
           <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -319,38 +319,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HOB/frame/gamePanel.java">
+    <entry file="file://$PROJECT_DIR$/src/HOB/frame/loginPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="902">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="270">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2256#2257#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HOB/util/imageUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/HOB/util/soundUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="120">
+          <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HOB/frame/gamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HOB/util/setDefine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
+        <state relative-caret-position="120">
           <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HOB/frame/loginPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/HOB/util/imageUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2329#2330#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -360,9 +368,14 @@
           <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#911#912#0" expanded="true" />
-            <element signature="e#984#985#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HOB/model/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
