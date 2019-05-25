@@ -54,12 +54,12 @@ public class audioPlayer {//音乐播放装置
      * 播放一遍音频
      */
     public void play() {
-        if(!selections.musicOpen) return;//如果音乐关闭就不播放了。
+        if(selections.musicOff) return;//如果音乐关闭就不播放了。
         readFile();
         clip.start();
     }
     public void play(String url) {
-        if(!selections.musicOpen) return;//如果音乐关闭就不播放了。
+        if(selections.musicOff) return;//如果音乐关闭就不播放了。
         setFilePath(url);
         readFile();
         clip.start();

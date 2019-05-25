@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Selections {//全局设置类
     private int Level = 0;//难度
-    public boolean musicOpen = true;//音乐开关
+    public boolean musicOff;//音乐是不是关闭的
     private mainFrame frame;
 
     /**
@@ -36,8 +36,8 @@ public class Selections {//全局设置类
     }
     //判断音乐开关，用于写入存档时
     public int getMusicOn() {
-        if(musicOpen)return 1;
-        else return 0;
+        if(musicOff)return 0;
+        else return 1;
     }
 
     /**
@@ -63,14 +63,14 @@ public class Selections {//全局设置类
      * 调整音乐开关
      */
     public void switchMusic() {
-        if(musicOpen) {
-            musicOpen = false;
-            frame.musicPlayer.stop();
-        }
-        else {
-            musicOpen = true;
+        if(musicOff) {
+            musicOff = false;
             frame.musicPlayer.readFile();//播放之前需要读一下
             frame.musicPlayer.play();
+        }
+        else {
+            musicOff = true;
+            frame.musicPlayer.stop();
         }
     }
 
@@ -79,8 +79,8 @@ public class Selections {//全局设置类
      */
     private void readOptions() throws IOException {
         if (frame.data.searchLong(stringConst.optionKey[0]) == 0) {
-            musicOpen = false;
-        } else musicOpen = true;
+            musicOff = true;
+        } else musicOff = false;
         setLevel(frame.data.searchLong(stringConst.optionKey[1]));
     }
 
@@ -89,7 +89,7 @@ public class Selections {//全局设置类
      * @return 文字形式的音乐开关状态
      */
     public String Music() {
-        if(musicOpen)
+        if(musicOff)
             return stringConst.optionPanel[1];
         else
             return stringConst.optionPanel[2];

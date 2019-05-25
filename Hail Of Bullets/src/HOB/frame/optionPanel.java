@@ -94,7 +94,6 @@ public class optionPanel extends JPanel implements KeyListener {
         switch (code) {// 判断按键值
             case KeyEvent.VK_W://如果按下w
             case KeyEvent.VK_UP:// 如果按下的是“↑”
-                System.out.println(frame.data.searchString("\'level"));
                 sound.play(urls.CLICK_SOUND_UTIL);
                 switch (selectBoxY) {
                     case y1 : selectBoxY = y3;break;

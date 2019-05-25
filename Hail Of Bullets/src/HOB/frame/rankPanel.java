@@ -71,6 +71,9 @@ public class rankPanel extends JPanel implements KeyListener {
         this.highestScore = frame.data.searchLong(stringConst.rankKey[0]);
         this.lastScore = frame.data.searchLong(stringConst.rankKey[1]);
         sound = new audioPlayer(frame.selection);
+        if(highestScore == 201914153) {//just for fun
+            stringConst.rankPanel[0] = "flag{H41L_0F_bUiieT5}";
+        }
     }
 
     /**

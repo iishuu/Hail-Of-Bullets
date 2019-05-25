@@ -7,7 +7,7 @@ public class urls {//所有会用到的地址
     public static final String SELECT_BOX_IMAGE_URL = "./image/select_box.png";//选择框
 
     //存档存储位置
-    public static final String dataUrl = "./data.d";
+    public static final String dataUrl = "./data.HOB";
 
     //声音存储位置
     public static final String CLICK_SOUND_UTIL = "./sound/click.wav";//切换声
