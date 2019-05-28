@@ -69,7 +69,7 @@ public class audioPlayer {//音乐播放装置
      * 停止
      */
     public void stop() {
-        clip.stop();;
+        clip.stop();
     }
     /**
      * 循环
