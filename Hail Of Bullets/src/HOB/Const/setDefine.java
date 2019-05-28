@@ -5,4 +5,7 @@ public class setDefine {//这是一些硬编码的数据
     public static final int height = 600;//界面高度
     public static final int size = 32;//字体大小
     public static final int dataSize = 0xffff;//存档的最大允许大小
+    public static final int freshTime = 20;//游戏帧刷新时间间隔，毫秒为单位。20即为50FPS
+    public static final int scoreDilution = 25;//分数稀释倍数，25即为每25帧增长一点分数
+
 }

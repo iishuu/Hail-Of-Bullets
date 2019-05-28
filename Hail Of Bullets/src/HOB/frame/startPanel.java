@@ -23,7 +23,7 @@ public class startPanel extends JPanel implements KeyListener {
     private static final int startY = setDefine.height/4 + 3*offsetY;//所有y坐标的偏移起点
 
     private static final long serialVersionUID = 1L;
-    private Image backgroud;// 背景图片
+    private Image background;// 背景图片
     private Image selectBox;//选择框图片
     private audioPlayer sound;//点击音效
     private final int []y = {startY,
@@ -47,9 +47,9 @@ public class startPanel extends JPanel implements KeyListener {
         sound = new audioPlayer(frame.selection);//实例化音效
         addListener();// 添加组件监听
         try {//异常处理，没有的话会报错
-            backgroud = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+            background = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
             selectBox = ImageIO.read(new File(urls.SELECT_BOX_IMAGE_URL));// 读取选择框图标
-      } catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -58,7 +58,7 @@ public class startPanel extends JPanel implements KeyListener {
      */
     @Override
     public void paint(Graphics g) {
-        g.drawImage(backgroud, 0, 0, getWidth(), getHeight(), this);// 绘制背景图片，填满整个面板
+        g.drawImage(background, 0, 0, getWidth(), getHeight(), this);// 绘制背景图片，填满整个面板
         Font font = new Font(stringConst.Font, Font.BOLD, setDefine.size);// 创建体字
         g.setFont(font);// 使用字体
         g.setColor(Color.BLACK);// 使用黑色
@@ -71,10 +71,10 @@ public class startPanel extends JPanel implements KeyListener {
     /**
      * 跳转游戏面板
      */
-    private void gotoGamePanel() {
+    private void gotoGamePanel() throws IOException {
         removeListener();// 主窗体删除键盘监听
         frame.musicPlayer.stop();//停止播放游戏开始前的背景音乐
-        frame.setPanel(new gamePanel(frame));// 主窗体跳转至选项面板
+        frame.setPanel(new gamePanel(frame, this));// 主窗体跳转至选项面板
     }
 
     /**
@@ -162,7 +162,11 @@ public class startPanel extends JPanel implements KeyListener {
                 sound.play(urls.DONE_SOUND_UTIL);
                 switch (selectBoxY) {
                     case y1:
-                        gotoGamePanel();
+                        try {
+                            gotoGamePanel();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
                         break;
                     case y2:
                         gotoRankPanel();
