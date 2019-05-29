@@ -22,7 +22,7 @@ public class optionPanel extends JPanel implements KeyListener {
     private static final int offsetY = setDefine.height/20;//所有y坐标的偏移量
     private static final int startY = setDefine.height/4 + 3*offsetY;//所有y坐标的偏移起点
 
-    private Image backgroud;// 背景图片
+    private Image backGround;// 背景图片
     private Image selectBox;//选择框图片
     private audioPlayer sound;
 
@@ -38,7 +38,7 @@ public class optionPanel extends JPanel implements KeyListener {
      * @param g 是本对象的御用画师
      */
     public void paint(Graphics g) {
-        g.drawImage(backgroud, 0, 0, getWidth(), getHeight(), this);// 绘制背景图片，填满整个面板
+        g.drawImage(backGround, 0, 0, getWidth(), getHeight(), this);// 绘制背景图片，填满整个面板
         Font font = new Font(stringConst.Font, Font.BOLD, setDefine.size);// 创建体字
         g.setFont(font);// 使用字体
         g.setColor(Color.BLACK);// 使用黑色
@@ -63,7 +63,7 @@ public class optionPanel extends JPanel implements KeyListener {
         this.backFrame = back;
         addListener();// 添加组件监听
         try {
-            backgroud = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+            backGround = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
             selectBox = ImageIO.read(new File(urls.SELECT_BOX_IMAGE_URL));// 读取选择框图标
         } catch (IOException e) {
             e.printStackTrace();

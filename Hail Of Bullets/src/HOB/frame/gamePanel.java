@@ -20,17 +20,17 @@ import HOB.model.character;
 
 public class gamePanel extends JPanel implements KeyListener{
     private int freshTime;//刷新率
-    private Image background;//显示主图片
+    private Image backGround;//显示主图片
     private mainFrame frame;//主窗体
     private startPanel backFrame;
     private character player;//玩家
     private boolean up_key, down_key, left_key, right_key;// 按键是否按下标志，左侧单词是按键名
     private List<Bullet> bullets;// 所有子弹集合
-    private volatile boolean finish = false, pause = false;// 游戏是否结束,是否暂停
-    private int level;//难度
+    private volatile boolean finish = false;// 游戏是否结束,是否暂停
     private int width, height;//窗口尺寸
+    private int level;
     private timer timer;//计时器
-    Thread thread;//刷新游戏帧的家伙
+    FreshThead thread;//刷新游戏帧的家伙
     private long score = 0;//分数
     private int scoreLoop = 0;//控制分数增长，用于稀释时间
 
@@ -49,7 +49,7 @@ public class gamePanel extends JPanel implements KeyListener{
         this.width = setDefine.width;
         this.height = setDefine.height;
         bullets = new ArrayList<Bullet>();// 实例化子弹集合
-        background = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+        backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_URL));// 读取背景图片
         player = new character();// 实例化玩家集合
         timer = new timer();//实例化计时器
         timer.timerStart();//开始计时器
@@ -60,8 +60,47 @@ public class gamePanel extends JPanel implements KeyListener{
     }
 
     private class FreshThead extends Thread{//游戏帧刷新线程
+        private final Object lock = new Object();
+        private boolean pause = false;
+        /**
+         * 调用该方法实现线程的暂停
+         */
+        void pauseThread(){
+            pause = true;
+        }
+
+        /*
+        调用该方法实现恢复线程的运行
+         */
+        void resumeThread(){
+            pause =false;
+            synchronized (lock){
+                lock.notify();
+            }
+        }
+
+        public boolean isPause() {
+            return !pause;
+        }
+
+        /**
+         * 这个方法只能在run 方法中实现，不然会阻塞主线程，导致页面无响应
+         */
+        void onPause() {
+            synchronized (lock) {
+                try {
+                    lock.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         public void run() {// 线程主方法
-            while (!finish && !pause) {// 如果游戏未停止且未暂停
+            while (!finish) {// 如果游戏未停止且未暂停
+                while (pause){
+                    onPause();
+                }
                 repaint();// 执行本类重绘方法
                 System.gc();// 绘制一次会产生大量垃圾对象，回收内存
                 checkCollision();//碰撞检测
@@ -101,11 +140,11 @@ public class gamePanel extends JPanel implements KeyListener{
                 right_key = true;// “D”按下标志为true
                 break;
             case KeyEvent.VK_ESCAPE:
-                if(pause) {
-                    gamePause(false);
+                if(thread.isPause()) {
+                    thread.pauseThread();
                 }
                 else {
-                    gamePause(true);
+                    thread.resumeThread();
                 }
                 break;
         }
@@ -132,13 +171,6 @@ public class gamePanel extends JPanel implements KeyListener{
         }
     }
 
-    private void gamePause(boolean flag) {
-        /**
-         * 将由iishuu完成
-         */
-
-    }
-
     public void paint(Graphics g) {
         paintMain(g);
         paintBullet(g);
@@ -146,7 +178,7 @@ public class gamePanel extends JPanel implements KeyListener{
     }
 
     private void paintMain(Graphics g) {    //绘制其他对象
-        g.drawImage(background, 0, 0, width, height, this);// 绘制背景图片，填满整个面板
+        g.drawImage(backGround, 0, 0, width, height, this);// 绘制背景图片，填满整个面板
         Font font = new Font(stringConst.Font, Font.BOLD, setDefine.size/2);// 创建体字
         g.setFont(font);// 使用字体
         g.setColor(Color.BLACK);// 使用黑色
