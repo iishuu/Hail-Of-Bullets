@@ -46,7 +46,8 @@ public abstract class DisplayableImage
             e.printStackTrace();
         }
     }
-
+    public DisplayableImage()
+    {}
     /**
      * 获取图片
      * @return 所显示的图片
