@@ -35,9 +35,9 @@ public class Selections {//全局设置类
         Level = (Level + 1) % 3;
     }
     //判断音乐开关，用于写入存档时
-    public int getMusicOn() {
-        if(musicOff)return 0;
-        else return 1;
+    public int getMusic() {
+        if(musicOff)return 1;
+        else return 0;
     }
 
     /**
@@ -79,8 +79,8 @@ public class Selections {//全局设置类
      */
     private void readOptions() throws IOException {
         if (frame.data.searchLong(stringConst.optionKey[0]) == 0) {
-            musicOff = true;
-        } else musicOff = false;
+            musicOff = false;
+        } else musicOff = true;
         setLevel(frame.data.searchLong(stringConst.optionKey[1]));
     }
 

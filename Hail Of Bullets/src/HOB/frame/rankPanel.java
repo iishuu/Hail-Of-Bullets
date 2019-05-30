@@ -13,7 +13,7 @@ import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 
-public class rankPanel extends JPanel implements KeyListener {
+public class rankPanel extends Panel {
     private static final long serialVersionUID = 1L;
     private static final int offsetX = setDefine.width/40;//所有x坐标的偏移量
     private static final int startX = setDefine.width/4 + 5*offsetX;//所有x坐标的偏移起点

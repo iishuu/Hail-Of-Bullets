@@ -9,11 +9,11 @@ import java.util.List;
 public class Bullet extends DisplayableImage
 {
     Direction direction;
+    gamePanel gamePanel;
     static final int length= 8;// 子弹的（正方形）边长
-    private gamePanel gamePanel;// 游戏面板
     private int speed;// 移动速度
     private boolean alive = true;// 子弹是否在边界内
-    Color color = Color.WHITE;// 子弹颜色.白色
+    Color color = Color.ORANGE;// 子弹颜色.黄色
     private character man;
     /**
      *
@@ -22,12 +22,12 @@ public class Bullet extends DisplayableImage
      * @param y          子弹的初始纵坐标
      * @param speed      子弹的初始速度
      * @param direction  子弹发射方向
-     * @param gamePanel  游戏面板对象
      */
     public Bullet (int x,int y,int speed,Direction direction,gamePanel gamePanel)
     {
         super(x,y,length,length);//调用父类构造方法
         this.direction=direction;
+        this.gamePanel=gamePanel;
         this.speed=speed;
         init();// 初始化组件
     }
@@ -36,9 +36,9 @@ public class Bullet extends DisplayableImage
      */
     private void init() {
         Graphics g = image.getGraphics();// 获取图片的绘图方法
-        g.setColor(Color.BLACK);// 使用黑色绘图
+        g.setColor(Color.WHITE);// 使用黑色绘图
         g.fillRect(0, 0, length, length);// 绘制一个铺满整个图片的黑色实心矩形
-        g.setColor(color);// 使用子弹颜色，白色绘图
+        g.setColor(color);// 使用子弹颜色
         g.fillOval(0, 0, length, length);// 绘制一个铺满整个图片的实心圆形
         g.drawOval(0, 0, length - 1, length - 1);// 给圆形绘制一个边框，防止出界，宽高减小1像素
     }
@@ -101,20 +101,8 @@ public class Bullet extends DisplayableImage
             man.setAlive(false);//主角凉凉
         }
     }
-
-    /**
-     * hit,待完成
-     * @param character
-     * @return
-     */
-    private boolean hit(character character) {
-        return true;
-    }
-    /**
-     * 移动出面板边界时销毁子弹
-     */
     private void moveToBorder() {
-        if (x < 0 || x > gamePanel.getWidth() - getWidth() || y < 0 || y > gamePanel.getHeight() - getHeight()) {// 如果子弹坐标离开游戏面板
+        if (x < 0 || x > width - getWidth() || y < 0 || y > height - getHeight()) {// 如果子弹坐标离开游戏面板
             this.dispose();// 销毁子弹
         }
     }
@@ -128,6 +116,6 @@ public class Bullet extends DisplayableImage
      * 获取子弹存活状态
      */
     public boolean isAlive() {
-        return alive;
+        return true;
     }
 }

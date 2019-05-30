@@ -5,7 +5,6 @@ import HOB.model.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,16 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 import HOB.model.Bullet;
 import HOB.model.character;
 
-public class gamePanel extends JPanel implements KeyListener{
+public class gamePanel extends Panel{
     private int freshTime;//刷新率
     private Image backGround;//显示主图片
     private mainFrame frame;//主窗体
-    private startPanel backFrame;
+    private Panel backFrame;
     private character player;//玩家
     private boolean up_key, down_key, left_key, right_key;// 按键是否按下标志，左侧单词是按键名
     private List<Bullet> bullets;// 所有子弹集合
@@ -30,11 +28,12 @@ public class gamePanel extends JPanel implements KeyListener{
     private int width, height;//窗口尺寸
     private int level;
     private timer timer;//计时器
-    FreshThead thread;//刷新游戏帧的家伙
+    private FreshThead thread;//刷新游戏帧的家伙
     private long score = 0;//分数
-    private int scoreLoop = 0;//控制分数增长，用于稀释时间
+    private int allTime = 0;//控制分数增长，用于稀释时间
+    private int maxSpeed=3;
 
-    public gamePanel(mainFrame frame, startPanel back) throws IOException {//构造方法
+    public gamePanel(mainFrame frame, Panel back) throws IOException {//构造方法
         this.frame = frame;//设定主界面
         this.backFrame = back;//设定返回界面
         this.level = frame.selection.getLevel(1);//获取难度
@@ -53,6 +52,10 @@ public class gamePanel extends JPanel implements KeyListener{
         player = new character();// 实例化玩家集合
         timer = new timer();//实例化计时器
         timer.timerStart();//开始计时器
+    }
+
+    public Panel getBackFrame() {
+        return backFrame;
     }
 
     private void addListener() {
@@ -80,7 +83,7 @@ public class gamePanel extends JPanel implements KeyListener{
         }
 
         public boolean isPause() {
-            return !pause;
+            return pause;
         }
 
         /**
@@ -140,13 +143,19 @@ public class gamePanel extends JPanel implements KeyListener{
                 right_key = true;// “D”按下标志为true
                 break;
             case KeyEvent.VK_ESCAPE:
-                if(thread.isPause()) {
-                    thread.pauseThread();
-                }
-                else {
-                    thread.resumeThread();
-                }
+            case KeyEvent.VK_P:
+                if(!finish) pauseEvent();
                 break;
+        }
+    }
+
+    public void pauseEvent() {
+        if(!thread.isPause()) {
+            thread.pauseThread();
+            gotoPausePanel();
+        }
+        else {
+            thread.resumeThread();
         }
     }
 
@@ -173,8 +182,10 @@ public class gamePanel extends JPanel implements KeyListener{
 
     public void paint(Graphics g) {
         paintMain(g);
-        paintBullet(g);
-        paintPlayer(g);
+        if(!thread.isPause()) {
+            paintBullet(g);
+            paintPlayer(g);
+        }
     }
 
     private void paintMain(Graphics g) {    //绘制其他对象
@@ -185,10 +196,70 @@ public class gamePanel extends JPanel implements KeyListener{
         g.drawString("当前分数：" + score + "", width/80, height/30);// 绘制得分
     }
 
-    private void paintBullet(Graphics g) {    //绘制子弹
-        /**
-         * bullet
-         */
+    private void addBullet(Bullet b) // 子弹的添加
+    {
+        bullets.add(b);
+    }
+
+    private void buildBullet()
+    {
+        for(int j=1;j<=4;j++)//上下左右四个方向生成子弹
+        {
+            int temp=1;//(int)(Math.random()*5)*(allTime/3000+1);
+            for(int i=1;i<=temp;i++)//每隔30s增加一次难度，每次+5
+            {
+                Bullet a = null;
+                switch (j)
+                {
+                    case 1 :a = new Bullet(0, (int) (Math.random() * height), (int)(Math.random()*maxSpeed)+1, Direction.right,this);
+                        break;
+                    case 2 :a = new Bullet(width,(int)(Math.random() * height),(int)(Math.random()*maxSpeed)+1,Direction.left,this);
+                        break;
+                    case 3 :a = new Bullet((int)(Math.random()*width),0,(int)(Math.random()*maxSpeed)+1,Direction.down,this);
+                        break;
+                    case 4 :a = new Bullet((int)(Math.random()*width),height,(int)(Math.random()*maxSpeed)+1,Direction.up,this);
+                }
+                addBullet(a);
+            }
+        }
+    }
+    private void paintBullet(Graphics g) //绘制子弹
+    {
+        switch (level)
+        {
+            case 1://难度1
+            {
+                if(allTime<=3000 && allTime%100==0) buildBullet();// 30s以内隔1s生成新一轮子弹
+                if(allTime>3000 && allTime<=6000 && allTime%50==0) buildBullet();// 30s~1min隔0.5s生成新一轮子弹
+                if(allTime>6000 && allTime<=12000 && allTime%25==0) buildBullet();// 1~2min隔0.25s生成新一轮子弹
+                if(allTime>12000 && allTime%20==0) buildBullet();// 2min后隔0.2s生成新一轮子弹
+            }break;
+            case 2://难度2
+            {
+                if(allTime<=3000 && allTime%50==0) buildBullet();// 30s以内隔0.5s生成新一轮子弹
+                if(allTime>3000 && allTime<=6000 && allTime%25==0) buildBullet();// 30s~1min隔0.25s生成新一轮子弹
+                if(allTime>6000 && allTime%20==0) buildBullet();// 1min后隔0.2s生成新一轮子弹
+            }break;
+            case 3://难度3
+            {
+                if(allTime<=6000 && allTime%25==0) buildBullet();// 1min以内隔0.25s生成新一轮子弹
+                if(allTime>6000 && allTime%20==0) buildBullet();// 1min后隔0.2s生成新一轮子弹
+            }break;
+        }
+        for (int i = 0; i < bullets.size(); i++) {// 循环遍历子弹集合
+            Bullet b = bullets.get(i);// 获取子弹对象
+            if (b.isAlive())
+            {// 如果子弹在界内
+                b.move();// 子弹执行移动操作
+                b.hitman();//判断子弹是否击中主角
+                g.drawImage(b.getImage(), b.x, b.y, this);// 绘制子弹
+            }
+            else
+            {// 如果子弹无效
+                bullets.remove(i);// 在集合中刪除此子弹
+                i--;// 循环变量-1，保证下次循环i的值不会变成i+1，以便有效遍历集合，且防止下标越界
+            }
+        }
     }
 
     private void paintPlayer(Graphics g) {    //绘制角色
@@ -198,39 +269,48 @@ public class gamePanel extends JPanel implements KeyListener{
     }
 
     private void checkCollision() { //碰撞检测
-        /** 遍历子弹集合
-         * 根据每个子弹的xy坐标，和角色的xy坐标进行运算，
-         * 满足某个条件之后，设置finish为true，即游戏结束
-         */
-        if(right_key&&up_key&&down_key&&left_key) finish = true;
-        //由于游戏暂时没有完成，同时前后左右即为暂时的强制退出条件
+        if(!player.isAlive()) finish = true;
     }
 
     private void scoreAdd() {//分数增长
-        if(scoreLoop%setDefine.scoreDilution == 0) {//如果循环到了地方
+        if(allTime%setDefine.scoreDilution == 0) {//如果循环到了地方
             score++;
         }
-        scoreLoop++;
+        allTime++;
     }
 
-    private void gameOver() throws IOException {
+    public void Finish() {
+        finish = true;
+    }
+
+    public void gameOver() throws IOException {
         player.setAlive(false);
         timer.timerStop();
-        /**
-         * 这一段由iishuu后续完成
-         */
+        //showScore();
         frame.data.writeLong(stringConst.rankKey[1], score);//更新最后得分
-        if(score>frame.data.searchLong(stringConst.rankKey[0])) {
+        if(score > frame.data.searchLong(stringConst.rankKey[0])) {
             frame.data.writeLong(stringConst.rankKey[0], score);
         }//更新最高分
         gotoBackPanel();
     }
+
+    /*private void showScore() {
+        frame.removeKeyListener(this);
+        frame.setPanel(new gameOverPanel(frame, this));// 主窗体跳转至说明面板
+        System.gc();
+    }*/
 
     private void gotoBackPanel() {
         frame.setPanel(backFrame);//返回上一层
         frame.removeKeyListener(this);//删除本对象的键盘监听
         frame.addKeyListener(backFrame);//重新添加上一层的键盘监听
         backFrame.repaint();//重新绘制上一层
+    }
+
+    private void gotoPausePanel() {
+        frame.removeKeyListener(this);
+        frame.setPanel(new pausePanel(frame, this));// 主窗体跳转至说明面板
+        System.gc();
     }
 
     public List<Bullet> getBullets(){

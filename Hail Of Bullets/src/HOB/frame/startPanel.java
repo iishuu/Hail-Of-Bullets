@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 
-public class startPanel extends JPanel implements KeyListener {
+public class startPanel extends Panel {
     private static final int offsetX = setDefine.width/40;//所有x坐标的偏移量
     private static final int startX = setDefine.width/4 + 5*offsetX;//所有x坐标的偏移起点
 

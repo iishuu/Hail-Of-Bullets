@@ -8,10 +8,10 @@ import javax.sound.sampled.Clip;
 
 public class audioPlayer {//音乐播放装置
     Selections selections;//选项
-    Clip clip;//核心
+    Clip clip = null;//核心
 
-    AudioInputStream audioInputStream;//读入流
-    static String filePath;//文件路径
+    AudioInputStream audioInputStream = null;//读入流
+    static String filePath = null;//文件路径
 
     /**
      * 初始化
@@ -69,6 +69,7 @@ public class audioPlayer {//音乐播放装置
      * 停止
      */
     public void stop() {
+        if(clip == null) return;
         clip.stop();
     }
     /**

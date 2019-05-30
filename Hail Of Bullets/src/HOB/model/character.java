@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
-public class character {
+public class character extends DisplayableImage{
     //todo:implements characterInterface
     //角色移动速度
     public static int xSPEED = 8;
