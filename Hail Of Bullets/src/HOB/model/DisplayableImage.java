@@ -76,27 +76,6 @@ public abstract class DisplayableImage
     }
 
     /**
-     * 判断是否发生碰撞
-     * @param v   目标图片对象
-     * @return 如果两者相交，则返回true，否则返回false
-     */
-    public boolean hit(DisplayableImage v) {
-        return hit(v.getRect());// 执行重载方法
-    }
-
-    /**
-     * 判断是否发生碰撞
-     * @param r   目标边界
-     * @return 如果两者相交，则返回true，否则返回false
-     */
-    public boolean hit(Rectangle r) {
-        if (r == null) {// 如果目标为空
-            return false;// 返回不发生碰撞
-        }
-        return getRect().intersects(r);// 返回两者的边界对象是否相交
-    }
-
-    /**
      * 获取边界对象
      */
     public Rectangle getRect() {

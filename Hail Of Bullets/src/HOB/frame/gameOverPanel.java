@@ -1,8 +1,8 @@
 package HOB.frame;
 
+import HOB.Const.urls;
 import HOB.Const.setDefine;
 import HOB.Const.stringConst;
-import HOB.Const.urls;
 import HOB.global.audioPlayer;
 
 import javax.imageio.ImageIO;
@@ -23,30 +23,28 @@ public class gameOverPanel extends Panel {
     private Image selectBox;//选择框图片
     private audioPlayer sound;
 
-    private final int y0 = startY - 3*offsetY,
-            y1 = startY,
-            y2 = startY + 2*offsetY,
-            y3 = startY + 4*offsetY; //选择框可以选择的两个位置
-    private int selectBoxY = y3;
-    private mainFrame frame;// 主窗体
-    private gamePanel backPanel;//调用它的界面，用于避免内存爆掉
+    private long lastScore;//最后得分
+    private long highestScore;//最高分
 
-    /**
-     * 绘图方法
-     * @param g 是本对象的御用画师
-     */
+    private final int y1 = startY - 5*offsetY,
+            y2 = startY + 4*offsetY,
+            y3 = startY + 6*offsetY,
+            y4 = startY + 8*offsetY; //选择框可以选择的四个位置
+    private int selectBoxY = y4;
+    private mainFrame frame;// 主窗体
+    private Panel backFrame;//调用它的界面，用于调用绘图
+    private Panel startPanel;//主界面
+
     public void paint(Graphics g) {
-        backPanel.paint(g);
+        backFrame.repaint();
         g.drawImage(backGround, 0, 0, getWidth(), getHeight(), this);// 绘制背景图片，填满整个面板
         Font font = new Font(stringConst.Font, Font.BOLD, setDefine.size);// 创建体字
         g.setFont(font);// 使用字体
         g.setColor(Color.BLACK);// 使用黑色
-        g.drawString(stringConst.pausePanel[0], startX, y0);// 绘制第一行文字
-        g.drawString(frame.selection.Music(), startX, y1);// 绘制第二行文字
-        g.drawString(stringConst.pausePanel[2], startX, y3);// 绘制第四行文字
-        font = new Font(stringConst.Font, Font.BOLD, setDefine.size - 7);// 创建体字
-        g.setFont(font);// 使用字体
-        g.drawString(stringConst.pausePanel[1], startX, y2);// 绘制第三行文字
+        g.drawString(stringConst.gameOverPanel[0], startX, y1);// 绘制第一行文字，标题
+        g.drawString(stringConst.gameOverPanel[1] + highestScore, startX - 3*offsetX, y2);// 绘制第二行文字，最高分
+        g.drawString(stringConst.gameOverPanel[2] + lastScore, startX - 3*offsetX, y3);// 绘制第三行文字，上次得分
+        g.drawString(stringConst.gameOverPanel[3], startX, y4);// 绘制第四行文字
         g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
 
     }
@@ -58,11 +56,12 @@ public class gameOverPanel extends Panel {
     /**
      * 构造函数
      * @param frame 主界面
-     * @param back 上一个界面，用于返回
+     * @param back 上一个界面
      */
-    public gameOverPanel(mainFrame frame, gamePanel back) {
+    public gameOverPanel(mainFrame frame, Panel back, Panel start) {
         this.frame = frame;
-        this.backPanel = back;
+        this.backFrame = back;
+        this.startPanel = start;
         addListener();// 添加组件监听
         try {
             backGround = ImageIO.read(new File(urls.PAUSE_BACKGROUND_IMAGE_URL));// 读取背景图片
@@ -71,28 +70,22 @@ public class gameOverPanel extends Panel {
             e.printStackTrace();
         }
         sound = new audioPlayer(frame.selection);
-    }
-    private void saveOptions() throws IOException {
-        frame.data.writeInt(stringConst.optionKey[0], frame.selection.getMusic());
-        frame.data.writeInt(stringConst.optionKey[1], frame.selection.getLevel(0));
+        this.highestScore = frame.data.searchLong(stringConst.rankKey[0]);
+        this.lastScore = frame.data.searchLong(stringConst.rankKey[1]);
+        sound = new audioPlayer(frame.selection);
+        if(highestScore == 201914153) {//just for fun
+            stringConst.gameOverPanel[0] = "flag{H41L_0F_bUiieT5}";
+        }
     }
 
     /**
      * 返回上一层
      */
-    private void gotoBackPanel() throws IOException {
-        frame.setPanel(backPanel);//返回上一层
+    private void gotoStartPanel() {
+        frame.setPanel(startPanel);//返回上一层
         frame.removeKeyListener(this);//删除本对象的键盘监听
-        frame.addKeyListener(backPanel);//重新添加上一层的键盘监听
-        backPanel.repaint();//重新绘制上一层
-        saveOptions();
-        backPanel.pauseEvent();
-    }
-
-    private void backToStart() throws IOException {
-        frame.removeKeyListener(this);//删除本对象的键盘监听
-        saveOptions();
-        backPanel.Finish();
+        frame.addKeyListener(startPanel);//重新添加上一层的键盘监听
+        startPanel.repaint();//重新绘制上一层
     }
 
     /**
@@ -101,58 +94,10 @@ public class gameOverPanel extends Panel {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();// 获取按下的按键值
         switch (code) {// 判断按键值
-            case KeyEvent.VK_W://如果按下w
-            case KeyEvent.VK_UP:// 如果按下的是“↑”
-                sound.play(urls.CLICK_SOUND_UTIL);
-                switch (selectBoxY) {
-                    case y1 : selectBoxY = y3;break;
-                    case y2 : selectBoxY = y1;break;
-                    case y3 : selectBoxY = y2;break;
-                    default : selectBoxY = y3;break;
-                }
-                repaint();// 按键按下之后，需要重新绘图
-                break;
-            case KeyEvent.VK_DOWN:// 如果按下的是“↓”
-            case KeyEvent.VK_S://或者S
-                sound.play(urls.CLICK_SOUND_UTIL);
-                switch (selectBoxY) {
-                    case y1 : selectBoxY = y2;break;
-                    case y2 : selectBoxY = y3;break;
-                    case y3 : selectBoxY = y1;break;
-                    default : selectBoxY = y3;break;
-                }
-                repaint();// 按键按下之后，需要重新绘图
-                break;
             case KeyEvent.VK_ENTER://如果按下回车
             case KeyEvent.VK_SPACE://或者空格
                 sound.play(urls.DONE_SOUND_UTIL);
-                switch (selectBoxY) {
-                    case y1 : frame.selection.switchMusic();break;//切换音乐开关
-                    case y2 :
-                        try {
-                            backToStart();
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    case y3 :
-                        try {
-                            gotoBackPanel();
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                        break;//返回上层
-                    default : selectBoxY = y3;
-                }
-                repaint();
-                break;
-            case KeyEvent.VK_ESCAPE:
-            case KeyEvent.VK_P:
-                sound.play(urls.DONE_SOUND_UTIL);
-                try {
-                    gotoBackPanel();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+                gotoStartPanel();//返回上层
                 break;
         }
     }
@@ -171,4 +116,5 @@ public class gameOverPanel extends Panel {
     public void keyTyped(KeyEvent e) {
         // 不实现此方法，但不可删除
     }
+
 }

@@ -11,7 +11,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 
-public class pausePanel extends Panel {
+public class pausePanel extends Panel {//todo:恢复计时器
     private static final long serialVersionUID = 1L;
     private static final int offsetX = setDefine.width/40;//所有x坐标的偏移量
     private static final int startX = setDefine.width/4 + 5*offsetX;//所有x坐标的偏移起点
@@ -43,10 +43,8 @@ public class pausePanel extends Panel {
         g.setColor(Color.BLACK);// 使用黑色
         g.drawString(stringConst.pausePanel[0], startX, y0);// 绘制第一行文字
         g.drawString(frame.selection.Music(), startX, y1);// 绘制第二行文字
-        g.drawString(stringConst.pausePanel[2], startX, y3);// 绘制第四行文字
-        font = new Font(stringConst.Font, Font.BOLD, setDefine.size - 7);// 创建体字
-        g.setFont(font);// 使用字体
         g.drawString(stringConst.pausePanel[1], startX, y2);// 绘制第三行文字
+        g.drawString(stringConst.pausePanel[2], startX, y3);// 绘制第四行文字
         g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
 
     }

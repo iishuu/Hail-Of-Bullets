@@ -4,13 +4,13 @@ import HOB.frame.gamePanel;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.List;
+import HOB.Const.setDefine;
 
 public class Bullet extends DisplayableImage
 {
     Direction direction;
     gamePanel gamePanel;
-    static final int length= 8;// 子弹的（正方形）边长
+    static final int length = 8;// 子弹的（正方形）边长
     private int speed;// 移动速度
     private boolean alive = true;// 子弹是否在边界内
     Color color = Color.ORANGE;// 子弹颜色.黄色
@@ -29,6 +29,7 @@ public class Bullet extends DisplayableImage
         this.direction=direction;
         this.gamePanel=gamePanel;
         this.speed=speed;
+        this.man=gamePanel.getCharacter();//获取主角对象
         init();// 初始化组件
     }
     /**
@@ -92,14 +93,10 @@ public class Bullet extends DisplayableImage
     /**
      * 击中主角啦
      */
-    public void hitman()
+    public void hitCharacter()
     {
-        man=gamePanel.getCharacter();//获取主角对象
-        if(man.isAlive() && this.hit(man))
-        {
-            this.dispose();//销毁子弹
+        if(x+4>man.getX() && x+4<man.getX()+35 && y+4>man.getY() && y+4<man.getY()+35)
             man.setAlive(false);//主角凉凉
-        }
     }
     private void moveToBorder() {
         if (x < 0 || x > width - getWidth() || y < 0 || y > height - getHeight()) {// 如果子弹坐标离开游戏面板

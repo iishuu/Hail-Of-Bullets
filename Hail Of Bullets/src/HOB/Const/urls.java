@@ -8,6 +8,8 @@ public class urls {//所有会用到的地址
     public static final String GAME_BACKGROUND_IMAGE_URL = "./image/game_background.png";//游戏界面背景
     public static final String PAUSE_BACKGROUND_IMAGE_URL = "./image/pause_background.png";//背景
 
+    public static final String CHARACTER_FUN_IMAGE_URL = "./image/huajiCharacter.png";
+
     //存档存储位置
     public static final String dataUrl = "./data.HOB";
 

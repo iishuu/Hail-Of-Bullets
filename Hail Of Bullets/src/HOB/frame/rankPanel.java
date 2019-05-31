@@ -42,8 +42,8 @@ public class rankPanel extends Panel {
         g.setFont(font);// 使用字体
         g.setColor(Color.BLACK);// 使用黑色
         g.drawString(stringConst.rankPanel[0], startX, y1);// 绘制第一行文字，标题
-        g.drawString(stringConst.rankPanel[1] + highestScore, startX - 4*offsetX, y2);// 绘制第二行文字，最高分
-        g.drawString(stringConst.rankPanel[2] + lastScore, startX - 4*offsetX, y3);// 绘制第三行文字，上次得分
+        g.drawString(stringConst.rankPanel[1] + highestScore, startX - 3*offsetX, y2);// 绘制第二行文字，最高分
+        g.drawString(stringConst.rankPanel[2] + lastScore, startX - 3*offsetX, y3);// 绘制第三行文字，上次得分
         g.drawString(stringConst.rankPanel[3], startX, y4);// 绘制第四行文字
         g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
 

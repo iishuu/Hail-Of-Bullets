@@ -27,7 +27,6 @@ public class gamePanel extends Panel{
     private volatile boolean finish = false;// 游戏是否结束,是否暂停
     private int width, height;//窗口尺寸
     private int level;
-    private timer timer;//计时器
     private FreshThead thread;//刷新游戏帧的家伙
     private long score = 0;//分数
     private int allTime = 0;//控制分数增长，用于稀释时间
@@ -49,9 +48,7 @@ public class gamePanel extends Panel{
         this.height = setDefine.height;
         bullets = new ArrayList<Bullet>();// 实例化子弹集合
         backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_URL));// 读取背景图片
-        player = new character();// 实例化玩家集合
-        timer = new timer();//实例化计时器
-        timer.timerStart();//开始计时器
+        player = new character(width / 2, height / 2);// 实例化玩家
     }
 
     public Panel getBackFrame() {
@@ -144,7 +141,7 @@ public class gamePanel extends Panel{
                 break;
             case KeyEvent.VK_ESCAPE:
             case KeyEvent.VK_P:
-                if(!finish) pauseEvent();
+                if (!finish) pauseEvent();
                 break;
         }
     }
@@ -251,7 +248,7 @@ public class gamePanel extends Panel{
             if (b.isAlive())
             {// 如果子弹在界内
                 b.move();// 子弹执行移动操作
-                b.hitman();//判断子弹是否击中主角
+                b.hitCharacter();//判断子弹是否击中主角
                 g.drawImage(b.getImage(), b.x, b.y, this);// 绘制子弹
             }
             else
@@ -263,9 +260,16 @@ public class gamePanel extends Panel{
     }
 
     private void paintPlayer(Graphics g) {    //绘制角色
-        /**
-         * character
-         */
+        movePlayer();
+        g.drawImage(player.getImage(), player.getX(), player.getY(),this);
+    }
+
+    private void movePlayer() {
+        if(right_key) player.moveRight();
+        if(left_key) player.moveLeft();
+        if(up_key) player.moveUp();
+        if(down_key) player.moveDown();
+        if(score%3 == 0)System.out.println(player.getX() + "， " + player.getY());
     }
 
     private void checkCollision() { //碰撞检测
@@ -285,26 +289,17 @@ public class gamePanel extends Panel{
 
     public void gameOver() throws IOException {
         player.setAlive(false);
-        timer.timerStop();
-        //showScore();
         frame.data.writeLong(stringConst.rankKey[1], score);//更新最后得分
         if(score > frame.data.searchLong(stringConst.rankKey[0])) {
             frame.data.writeLong(stringConst.rankKey[0], score);
         }//更新最高分
-        gotoBackPanel();
+        showScore();
     }
 
-    /*private void showScore() {
+    private void showScore() {
         frame.removeKeyListener(this);
-        frame.setPanel(new gameOverPanel(frame, this));// 主窗体跳转至说明面板
+        frame.setPanel(new gameOverPanel(frame, this, backFrame));// 主窗体跳转至说明面板
         System.gc();
-    }*/
-
-    private void gotoBackPanel() {
-        frame.setPanel(backFrame);//返回上一层
-        frame.removeKeyListener(this);//删除本对象的键盘监听
-        frame.addKeyListener(backFrame);//重新添加上一层的键盘监听
-        backFrame.repaint();//重新绘制上一层
     }
 
     private void gotoPausePanel() {
