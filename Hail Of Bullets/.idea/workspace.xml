@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aec765d3-1d03-4b3f-9946-5928e31b618e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Hail_Of_Bullets_jar.xml" beforeDir="false" />
+    <list default="true" id="037c1ef1-af55-4157-82db-20a7545f7031" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.HOB" beforeDir="false" afterPath="$PROJECT_DIR$/data.HOB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/game_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/Const/setDefine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/Const/stringConst.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/Const/urls.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/Panel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/gameOverPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/gamePanel$FreshThead.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/gamePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/mainFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/mainFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/optionPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/pausePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/rankPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/startPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/global/Selections.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/global/audioPlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/global/ioCrypto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/model/Bullet$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/model/Bullet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/model/Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/model/DisplayableImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/model/character.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/META-INF/Hail Of Bullets.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound/click.wav" beforeDir="false" afterPath="$PROJECT_DIR$/sound/click.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound/done.wav" beforeDir="false" afterPath="$PROJECT_DIR$/sound/done.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound/mainMusic.wav" beforeDir="false" afterPath="$PROJECT_DIR$/sound/mainMusic.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/Const/setDefine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/Const/setDefine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/Const/stringConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/Const/stringConst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/Const/urls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/Const/urls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/frame/gameOverPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/gameOverPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HOB/frame/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/gamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/frame/mainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/mainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/frame/optionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/optionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/frame/pausePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/pausePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/frame/rankPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/rankPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/frame/startPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/startPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/global/Selections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/global/Selections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/global/audioPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/global/audioPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOB/model/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/model/Bullet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,19 +55,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/HOB/frame/gamePanel.java">
+        <entry file="file://$PROJECT_DIR$/src/HOB/model/Bullet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="271" column="4" selection-start-line="271" selection-start-column="4" selection-end-line="271" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HOB/model/character.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="82">
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -39,26 +68,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/HOB/frame/gamePanel.java" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="width" value="930" />
     <option name="height" value="1090" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -79,22 +102,13 @@
             </path>
             <path>
               <item name="Hail Of Bullets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hail Of Bullets" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="HOB" type="462c0819:PsiDirectoryNode" />
-              <item name="frame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hail Of Bullets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hail Of Bullets" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="HOB" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -102,6 +116,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.14722222" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -116,7 +133,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HOB.Main" />
       <module name="Hail Of Bullets" />
       <method v="2">
@@ -129,21 +146,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="aec765d3-1d03-4b3f-9946-5928e31b618e" name="Default Changelist" comment="" />
-      <created>1559314845057</created>
+      <changelist id="037c1ef1-af55-4157-82db-20a7545f7031" name="Default Changelist" comment="" />
+      <created>1559325327858</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1559314845057</updated>
-      <workItem from="1559314847289" duration="118000" />
+      <updated>1559325327858</updated>
+      <workItem from="1559325330287" duration="256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118000" />
+    <option name="totallyTimeSpent" value="256000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="69" y="-7" width="1474" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -152,7 +168,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Messages" visible="true" weight="0.3297587" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
@@ -160,7 +176,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -180,26 +196,92 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/HOB/model/character.java">
+    <entry file="file://$PROJECT_DIR$/src/HOB/model/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HOB/frame/gamePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="271" column="4" selection-start-line="271" selection-start-column="4" selection-end-line="271" selection-end-column="4" />
+        <state relative-caret-position="82">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Hail Of Bullets:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Hail Of Bullets</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

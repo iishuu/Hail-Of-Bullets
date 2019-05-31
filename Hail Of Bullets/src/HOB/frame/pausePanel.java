@@ -101,7 +101,7 @@ public class pausePanel extends Panel {//todo:恢复计时器
         switch (code) {// 判断按键值
             case KeyEvent.VK_W://如果按下w
             case KeyEvent.VK_UP:// 如果按下的是“↑”
-                sound.play(urls.CLICK_SOUND_UTIL);
+                sound.play(urls.CLICK_SOUND_MUSIC);
                 switch (selectBoxY) {
                     case y1 : selectBoxY = y3;break;
                     case y2 : selectBoxY = y1;break;
@@ -112,7 +112,7 @@ public class pausePanel extends Panel {//todo:恢复计时器
                 break;
             case KeyEvent.VK_DOWN:// 如果按下的是“↓”
             case KeyEvent.VK_S://或者S
-                sound.play(urls.CLICK_SOUND_UTIL);
+                sound.play(urls.CLICK_SOUND_MUSIC);
                 switch (selectBoxY) {
                     case y1 : selectBoxY = y2;break;
                     case y2 : selectBoxY = y3;break;
@@ -123,7 +123,7 @@ public class pausePanel extends Panel {//todo:恢复计时器
                 break;
             case KeyEvent.VK_ENTER://如果按下回车
             case KeyEvent.VK_SPACE://或者空格
-                sound.play(urls.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_MUSIC);
                 switch (selectBoxY) {
                     case y1 : frame.selection.switchMusic();break;//切换音乐开关
                     case y2 :
@@ -145,7 +145,7 @@ public class pausePanel extends Panel {//todo:恢复计时器
                 break;
             case KeyEvent.VK_ESCAPE:
             case KeyEvent.VK_P:
-                sound.play(urls.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_MUSIC);
                 try {
                     gotoBackPanel();
                 } catch (IOException e1) {

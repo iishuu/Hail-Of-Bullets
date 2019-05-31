@@ -92,7 +92,7 @@ public class optionPanel extends Panel {
         switch (code) {// 判断按键值
             case KeyEvent.VK_W://如果按下w
             case KeyEvent.VK_UP:// 如果按下的是“↑”
-                sound.play(urls.CLICK_SOUND_UTIL);
+                sound.play(urls.CLICK_SOUND_MUSIC);
                 switch (selectBoxY) {
                     case y1 : selectBoxY = y3;break;
                     case y2 : selectBoxY = y1;break;
@@ -103,7 +103,7 @@ public class optionPanel extends Panel {
                 break;
             case KeyEvent.VK_DOWN:// 如果按下的是“↓”
             case KeyEvent.VK_S://或者S
-                sound.play(urls.CLICK_SOUND_UTIL);
+                sound.play(urls.CLICK_SOUND_MUSIC);
                 switch (selectBoxY) {
                     case y1 : selectBoxY = y2;break;
                     case y2 : selectBoxY = y3;break;
@@ -114,7 +114,7 @@ public class optionPanel extends Panel {
                 break;
             case KeyEvent.VK_ENTER://如果按下回车
             case KeyEvent.VK_SPACE://或者空格
-                sound.play(urls.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_MUSIC);
                 switch (selectBoxY) {
                     case y1 : frame.selection.addLevel();break;//难度增加（循环）
                     case y2 : frame.selection.switchMusic();break;//切换音乐开关
@@ -130,7 +130,7 @@ public class optionPanel extends Panel {
                 repaint();
                 break;
             case KeyEvent.VK_ESCAPE:
-                sound.play(urls.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_MUSIC);
                 try {
                     gotoBackPanel();
                 } catch (IOException e1) {

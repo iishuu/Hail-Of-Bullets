@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Hail Of Bullets:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Hail_Of_Bullets_jar</output-path>
+    <root id="archive" name="Hail Of Bullets.jar">
+      <element id="module-output" name="Hail Of Bullets" />
+    </root>
+  </artifact>
+</component>

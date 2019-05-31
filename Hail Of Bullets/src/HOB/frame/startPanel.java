@@ -7,12 +7,10 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 
 public class startPanel extends Panel {
@@ -29,11 +27,13 @@ public class startPanel extends Panel {
     private final int []y = {startY,
             startY + 2*offsetY,
             startY + 4*offsetY,
-            startY + 6*offsetY}; //便于遍历
+            startY + 6*offsetY,
+            startY + 8*offsetY}; //便于遍历
     private final int y1 = startY;//一号坑
     private final int y2 = startY + 2*offsetY;//二号坑
     private final int y3 = startY + 4*offsetY;//三号坑
     private final int y4 = startY + 6*offsetY;//四号坑
+    private final int y5 = startY + 8*offsetY;//五号坑
     private int selectBoxY = y1;//初始化为1号坑
     private mainFrame frame;
     /**
@@ -71,7 +71,7 @@ public class startPanel extends Panel {
     /**
      * 跳转游戏面板
      */
-    private void gotoGamePanel() throws IOException {
+    private void gotoGamePanel() throws IOException {//开始游戏
         removeListener();// 主窗体删除键盘监听
         frame.musicPlayer.stop();//停止播放游戏开始前的背景音乐
         frame.setPanel(new gamePanel(frame, this));// 主窗体跳转至选项面板
@@ -80,7 +80,7 @@ public class startPanel extends Panel {
     /**
      * 跳转选项面板
      */
-    private void gotoSelectionPanel() {
+    private void gotoSelectionPanel() {//选择面板
         removeListener();// 主窗体删除键盘监听
         frame.setPanel(new optionPanel(frame, this));// 主窗体跳转至选项面板
     }
@@ -88,9 +88,14 @@ public class startPanel extends Panel {
     /**
      * 跳转排名面板
      */
-    private void gotoRankPanel() {
+    private void gotoRankPanel() {//排名面板
         removeListener();// 主窗体删除键盘监听
         frame.setPanel(new rankPanel(frame, this));// 主窗体跳转至说明面板
+    }
+
+    private void gotoInfoPanel() {//更多信息
+        removeListener();// 主窗体删除键盘监听
+        frame.setPanel(new infoPanel(frame, this));// 主窗体跳转至说明面板
     }
     /**
      * 添加组件监听
@@ -115,10 +120,10 @@ public class startPanel extends Panel {
         switch (code) {// 判断按键值
             case KeyEvent.VK_UP:// 如果按下的是“↑”
             case KeyEvent.VK_W://或者'w'
-                sound.play(urls.CLICK_SOUND_UTIL);//播放指针切换的声音
+                sound.play(urls.CLICK_SOUND_MUSIC);//播放指针切换的声音
                 switch (selectBoxY) {//选择框在哪里？
                     case y1 :
-                        selectBoxY = y4;
+                        selectBoxY = y5;
                         break;
                     case y2:
                         selectBoxY = y1;
@@ -129,6 +134,9 @@ public class startPanel extends Panel {
                     case y4:
                         selectBoxY = y3;
                         break;
+                    case y5:
+                        selectBoxY = y4;
+                        break;
                     default:
                         selectBoxY = y1;
                         break;
@@ -137,7 +145,7 @@ public class startPanel extends Panel {
                 break;
             case KeyEvent.VK_DOWN:// 如果按下的是“↓”
             case KeyEvent.VK_S://或者's'
-                sound.play(urls.CLICK_SOUND_UTIL);//播放指针切换的声音
+                sound.play(urls.CLICK_SOUND_MUSIC);//播放指针切换的声音
                 switch (selectBoxY) {
                     case y1:
                         selectBoxY = y2;
@@ -149,6 +157,9 @@ public class startPanel extends Panel {
                         selectBoxY = y4;
                         break;
                     case y4:
+                        selectBoxY = y5;
+                        break;
+                    case y5:
                         selectBoxY = y1;
                         break;
                     default:
@@ -159,7 +170,7 @@ public class startPanel extends Panel {
                 break;
             case KeyEvent.VK_ENTER:// 如果按下的是“Enter”
             case KeyEvent.VK_SPACE://或者空格
-                sound.play(urls.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_MUSIC);
                 switch (selectBoxY) {
                     case y1:
                         try {
@@ -175,6 +186,9 @@ public class startPanel extends Panel {
                         gotoSelectionPanel();
                         break;
                     case y4:
+                        gotoInfoPanel();
+                        break;
+                    case y5:
                         System.exit(0);
                         break;
                     default:
@@ -184,8 +198,8 @@ public class startPanel extends Panel {
                 repaint();// 按键按下之后，需要重新绘图
                 break;
             case KeyEvent.VK_ESCAPE:
-                sound.play(urls.DONE_SOUND_UTIL);
-                selectBoxY = y4;
+                sound.play(urls.DONE_SOUND_MUSIC);
+                selectBoxY = y5;
                 repaint();
                 break;
         }

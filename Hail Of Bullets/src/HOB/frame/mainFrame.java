@@ -23,8 +23,9 @@ public class mainFrame extends JFrame{
         setTitle(stringConst.gameTitle);   //设置标题
         data = new ioCrypto(urls.dataUrl);//初始化读写模块
         selection = new Selections(this);//实例化全局设置
-        musicPlayer = new audioPlayer(urls.MAIN_MUSIC_UTIL, selection);//初始化背景音乐
-        musicPlayer.play(urls.MAIN_MUSIC_UTIL);//开始播放，一遍就够了
+        musicPlayer = new audioPlayer(urls.MAIN_MUSIC_MUSIC, selection);//初始化背景音乐
+        musicPlayer.setFilePath(urls.MAIN_MUSIC_MUSIC);//设定路径
+        musicPlayer.play();//开始播放，一遍就够了
         setSize(setDefine.width, setDefine.height);  //设置宽高
         setResizable(false);    //不可调整大小
         Toolkit tool = Toolkit.getDefaultToolkit(); //创建系统默认工具包

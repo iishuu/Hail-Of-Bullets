@@ -1,10 +1,16 @@
 package HOB.model;
 
+import HOB.Const.urls;
 import HOB.frame.gamePanel;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.File;
+import java.io.IOException;
+
 import HOB.Const.setDefine;
+
+import javax.imageio.ImageIO;
 
 public class Bullet extends DisplayableImage
 {
@@ -36,13 +42,11 @@ public class Bullet extends DisplayableImage
      * 初始化组件
      */
     private void init() {
-        Graphics g = image.getGraphics();// 获取图片的绘图方法
-        g.setColor(Color.WHITE);// 使用黑色绘图
-        g.fillRect(0, 0, length, length);// 绘制一个铺满整个图片的黑色实心矩形
-        g.setColor(color);// 使用子弹颜色
-        g.fillOval(0, 0, length, length);// 绘制一个铺满整个图片的实心圆形
-        g.drawOval(0, 0, length - 1, length - 1);// 给圆形绘制一个边框，防止出界，宽高减小1像素
-    }
+        try {
+            this.image = ImageIO.read(new File(urls.BULLET_IMAGE_URL));// 读取背景图片
+        } catch (IOException e) {
+            e.printStackTrace();
+        }}
     /**
      * 子弹移动
      */
@@ -93,10 +97,11 @@ public class Bullet extends DisplayableImage
     /**
      * 击中主角啦
      */
-    public void hitCharacter()
-    {
-        if(x+4>man.getX() && x+4<man.getX()+35 && y+4>man.getY() && y+4<man.getY()+35)
+    public void hitCharacter() {
+        if (x + length > man.getX() && x + length < man.getX() + setDefine.characterWidth && y + length > man.getY() && y + length < man.getY() + setDefine.characterHeight)
+        {//如果子弹中心位置在角色的矩形中。（适当缩小）
             man.setAlive(false);//主角凉凉
+        }
     }
     private void moveToBorder() {
         if (x < 0 || x > width - getWidth() || y < 0 || y > height - getHeight()) {// 如果子弹坐标离开游戏面板

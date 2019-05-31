@@ -6,10 +6,8 @@ import HOB.Const.stringConst;
 import HOB.global.audioPlayer;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -94,11 +92,11 @@ public class rankPanel extends Panel {
         switch (code) {// 判断按键值
             case KeyEvent.VK_ENTER://如果按下回车
             case KeyEvent.VK_SPACE://或者空格
-                sound.play(urls.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_MUSIC);
                 gotoBackPanel();//返回上层
                 break;
             case KeyEvent.VK_ESCAPE:
-                sound.play(urls.DONE_SOUND_UTIL);
+                sound.play(urls.DONE_SOUND_MUSIC);
                 gotoBackPanel();
                 break;
         }

@@ -65,7 +65,6 @@ public class Selections {//全局设置类
     public void switchMusic() {
         if(musicOff) {
             musicOff = false;
-            frame.musicPlayer.readFile();//播放之前需要读一下
             frame.musicPlayer.play();
         }
         else {

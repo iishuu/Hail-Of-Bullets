@@ -2,6 +2,7 @@ package HOB.frame;
 
 import HOB.Const.*;
 import HOB.model.*;
+import HOB.global.audioPlayer;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -31,11 +32,16 @@ public class gamePanel extends Panel{
     private long score = 0;//分数
     private int allTime = 0;//控制分数增长，用于稀释时间
     private int maxSpeed=3;
+    private audioPlayer music;
 
     public gamePanel(mainFrame frame, Panel back) throws IOException {//构造方法
         this.frame = frame;//设定主界面
         this.backFrame = back;//设定返回界面
         this.level = frame.selection.getLevel(1);//获取难度
+        this.freshTime = setDefine.freshTime;
+        this.width = setDefine.width;
+        this.height = setDefine.height;
+        music = frame.musicPlayer;
         init();//initialize,初始化
         thread = new FreshThead();//创建游戏帧刷新线程
         thread.start();//开始线程
@@ -43,11 +49,20 @@ public class gamePanel extends Panel{
     }
 
     private void init() throws IOException {
-        this.freshTime = setDefine.freshTime;
-        this.width = setDefine.width;
-        this.height = setDefine.height;
         bullets = new ArrayList<Bullet>();// 实例化子弹集合
-        backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_URL));// 读取背景图片
+        switch(level) {
+            case 1: music.setFilePath(urls.GAME_BGM_1);
+                backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_1));// 读取背景图片
+                break;
+            case 2: music.setFilePath(urls.GAME_BGM_2);
+                backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_2));// 读取背景图片
+                break;
+            default:
+            case 3: music.setFilePath(urls.GAME_BGM_3);
+                backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_3));// 读取背景图片
+                break;
+        }
+        music.play();
         player = new character(width / 2, height / 2);// 实例化玩家
     }
 

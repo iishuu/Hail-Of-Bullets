@@ -75,7 +75,9 @@ public class audioPlayer {//音乐播放装置
     /**
      * 循环
      */
-    public void loop(int n) {
-        clip.loop(n);
+    public void loop(String url) {
+        setFilePath(url);
+        readFile();
+        clip.loop(100);
     }
 }
