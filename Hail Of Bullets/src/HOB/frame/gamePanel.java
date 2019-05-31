@@ -269,7 +269,6 @@ public class gamePanel extends Panel{
         if(left_key) player.moveLeft();
         if(up_key) player.moveUp();
         if(down_key) player.moveDown();
-        if(score%3 == 0)System.out.println(player.getX() + "， " + player.getY());
     }
 
     private void checkCollision() { //碰撞检测
