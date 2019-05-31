@@ -11,7 +11,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 
-public class pausePanel extends Panel {
+public class pausePanel extends Panel {//todo:恢复计时器
     private static final long serialVersionUID = 1L;
     private static final int offsetX = setDefine.width/40;//所有x坐标的偏移量
     private static final int startX = setDefine.width/4 + 5*offsetX;//所有x坐标的偏移起点

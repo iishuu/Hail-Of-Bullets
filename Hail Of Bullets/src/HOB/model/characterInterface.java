@@ -12,12 +12,17 @@ public interface characterInterface {
     void moveDown();
     void moveRight();
 
-    int getX();
-    int getY();
-    int isAlive();
+    void stop();
 
-    void setX();
-    void setY();
+    int getCharacterX();
+
+    int getCharacterY();
+
+    boolean isAlive();
+
+    void setCharacterX(int x);
+
+    void setCharacterY(int x);
     void setAlive();
 
     /**
@@ -34,6 +39,7 @@ public interface characterInterface {
     int graphicHigh();
     int graphicWidth();
     int bloodBarHigh();
-    int bolldBarWidth();
+
+    int bloodBarWidth();
 
 }

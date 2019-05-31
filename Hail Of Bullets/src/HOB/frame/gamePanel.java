@@ -49,7 +49,7 @@ public class gamePanel extends Panel{
         this.height = setDefine.height;
         bullets = new ArrayList<Bullet>();// 实例化子弹集合
         backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_URL));// 读取背景图片
-        player = new character();// 实例化玩家集合
+        player = new character(width / 2, height / 2, character.Direction.STOP);// 实例化玩家
         timer = new timer();//实例化计时器
         timer.timerStart();//开始计时器
     }
@@ -129,22 +129,30 @@ public class gamePanel extends Panel{
             case KeyEvent.VK_W:// 如果按下的是“W”
             case KeyEvent.VK_UP:// 如果按下的是“↑”
                 up_key = true;// “W”按下标志为true
+                player.moveUp();
+                player.checkBorder(width, height);
                 break;
             case KeyEvent.VK_A:// 如果按下的是“A”
             case KeyEvent.VK_LEFT:// 如果按下的是“←”
                 left_key = true;// “A”按下标志为true
+                player.moveLeft();
+                player.checkBorder(width, height);
                 break;
             case KeyEvent.VK_S:// 如果按下的是“S”
             case KeyEvent.VK_DOWN:// 如果按下的是“↓”
                 down_key = true;// “S”按下标志为true
+                player.moveDown();
+                player.checkBorder(width, height);
                 break;
             case KeyEvent.VK_D:// 如果按下的是“D”
             case KeyEvent.VK_RIGHT:// 如果按下的是“→”
                 right_key = true;// “D”按下标志为true
+                player.moveRight();
+                player.checkBorder(width, height);
                 break;
             case KeyEvent.VK_ESCAPE:
             case KeyEvent.VK_P:
-                if(!finish) pauseEvent();
+                if (!finish) pauseEvent();
                 break;
         }
     }
@@ -164,18 +172,22 @@ public class gamePanel extends Panel{
             case KeyEvent.VK_W:// 如果抬起的是“W”
             case KeyEvent.VK_UP:// 如果抬起的是“↑”
                 up_key = false;// “W”按下标志为false
+                player.stop();
                 break;
             case KeyEvent.VK_A:// 如果抬起的是“A”
             case KeyEvent.VK_LEFT:// 如果抬起的是“←”
                 left_key = false;// “A”按下标志为false
+                player.stop();
                 break;
             case KeyEvent.VK_S:// 如果抬起的是“S”
             case KeyEvent.VK_DOWN:// 如果抬起的是“↓”
                 down_key = false;// “S”按下标志为false
+                player.stop();
                 break;
             case KeyEvent.VK_D:// 如果抬起的是“D”
             case KeyEvent.VK_RIGHT:// 如果抬起的是“→”
                 right_key = false;// “D”按下标志为false
+                player.stop();
                 break;
         }
     }
@@ -194,6 +206,7 @@ public class gamePanel extends Panel{
         g.setFont(font);// 使用字体
         g.setColor(Color.BLACK);// 使用黑色
         g.drawString("当前分数：" + score + "", width/80, height/30);// 绘制得分
+        g.drawString("当前用时：" + timer.getUsedTime(), width / 80, height / 30 + 20);//绘制用时
     }
 
     private void addBullet(Bullet b) // 子弹的添加
@@ -263,9 +276,7 @@ public class gamePanel extends Panel{
     }
 
     private void paintPlayer(Graphics g) {    //绘制角色
-        /**
-         * character
-         */
+        player.draw(g);
     }
 
     private void checkCollision() { //碰撞检测
@@ -285,7 +296,7 @@ public class gamePanel extends Panel{
 
     public void gameOver() throws IOException {
         player.setAlive(false);
-        timer.timerStop();
+        //timer.timerStop();//不再需要了
         //showScore();
         frame.data.writeLong(stringConst.rankKey[1], score);//更新最后得分
         if(score > frame.data.searchLong(stringConst.rankKey[0])) {
@@ -310,6 +321,7 @@ public class gamePanel extends Panel{
     private void gotoPausePanel() {
         frame.removeKeyListener(this);
         frame.setPanel(new pausePanel(frame, this));// 主窗体跳转至说明面板
+        //timer.timerPause();//暂停计时
         System.gc();
     }
 
