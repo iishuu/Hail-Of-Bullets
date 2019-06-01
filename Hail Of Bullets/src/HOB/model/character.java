@@ -20,13 +20,17 @@ public class character extends DisplayableImage {
 
     private int frameWidth, frameHeight;
 
-    public character(int characterX, int characterY) {
+    private String imageUrl;
+
+    public character(int characterX, int characterY, boolean haveFun) {
         this.characterX = characterX;
         this.characterY = characterY;
         frameWidth = setDefine.width;
         frameHeight = setDefine.height;
+        if(haveFun) imageUrl = urls.CHARACTER_FUN_IMAGE_URL;
+        else imageUrl = urls.CHARACTER_IMAGE_URL;
         try {
-            this.image = ImageIO.read(new File(urls.CHARACTER_FUN_IMAGE_URL));// 读取背景图片
+            this.image = ImageIO.read(new File(imageUrl));// 读取背景图片
          } catch (IOException e) {
             e.printStackTrace();
         }

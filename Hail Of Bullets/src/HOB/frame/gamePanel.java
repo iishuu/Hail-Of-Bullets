@@ -32,6 +32,8 @@ public class gamePanel extends Panel{
     private long score = 0;//分数
     private int allTime = 0;//控制分数增长，用于稀释时间
     private int maxSpeed=3;
+    private Bullet warning;//预警子弹
+    private int tempx,tempy;//方形子弹阵的坐标
     private audioPlayer music;
 
     public gamePanel(mainFrame frame, Panel back) throws IOException {//构造方法
@@ -50,20 +52,28 @@ public class gamePanel extends Panel{
 
     private void init() throws IOException {
         bullets = new ArrayList<Bullet>();// 实例化子弹集合
-        switch(level) {
-            case 1: music.setFilePath(urls.GAME_BGM_1);
+        switch (level) {
+            case 1:
+                music.setFilePath(urls.GAME_BGM_1);
                 backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_1));// 读取背景图片
                 break;
-            case 2: music.setFilePath(urls.GAME_BGM_2);
+            case 2:
+                music.setFilePath(urls.GAME_BGM_2);
                 backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_2));// 读取背景图片
                 break;
             default:
-            case 3: music.setFilePath(urls.GAME_BGM_3);
+            case 3:
+                music.setFilePath(urls.GAME_BGM_3);
                 backGround = ImageIO.read(new File(urls.GAME_BACKGROUND_IMAGE_3));// 读取背景图片
                 break;
         }
         music.play();
-        player = new character(width / 2, height / 2);// 实例化玩家
+        if (frame.selection.getFun() == 1) {
+            player = new character(width / 2, height / 2, true);// 实例化玩家
+        }
+        else {
+            player = new character(width / 2, height / 2, false);// 实例化玩家
+        }
     }
 
     public Panel getBackFrame() {
@@ -213,6 +223,15 @@ public class gamePanel extends Panel{
         bullets.add(b);
     }
 
+    private void warning()//设置预警的子弹
+    {
+        do {
+            tempx = (int) (100 + (Math.random() * (width - 200)));//在X为100-700生成方形子弹阵的X坐标
+            tempy = (int) (100 + (Math.random() * (height - 200)));//在Y为100-500生成方形子弹阵的Y坐标
+        }while(tempx>player.getX() && tempx<player.getX()+setDefine.characterWidth && tempy>player.getY() && tempy<player.getY()+setDefine.characterHeight);//防止刷到脸上
+        warning=new Bullet(tempx,tempy,0,0,Direction.sector,this,2);
+        addBullet(warning);
+    }
     private void buildBullet()
     {
         for(int j=1;j<=4;j++)//上下左右四个方向生成子弹
@@ -223,15 +242,40 @@ public class gamePanel extends Panel{
                 Bullet a = null;
                 switch (j)
                 {
-                    case 1 :a = new Bullet(0, (int) (Math.random() * height), (int)(Math.random()*maxSpeed)+1, Direction.right,this);
+                    case 1 :a = new Bullet(0,(int) (Math.random() * height),(int)(Math.random()*maxSpeed)+1,0,Direction.right,this,1);
                         break;
-                    case 2 :a = new Bullet(width,(int)(Math.random() * height),(int)(Math.random()*maxSpeed)+1,Direction.left,this);
+                    case 2 :a = new Bullet(width,(int)(Math.random() * height),(int)(Math.random()*maxSpeed)+1,0,Direction.left,this,1);
                         break;
-                    case 3 :a = new Bullet((int)(Math.random()*width),0,(int)(Math.random()*maxSpeed)+1,Direction.down,this);
+                    case 3 :a = new Bullet((int)(Math.random() * width),0,(int)(Math.random()*maxSpeed)+1,0,Direction.down,this,1);
                         break;
-                    case 4 :a = new Bullet((int)(Math.random()*width),height,(int)(Math.random()*maxSpeed)+1,Direction.up,this);
+                    case 4 :a = new Bullet((int)(Math.random() * width),height,(int)(Math.random()*maxSpeed)+1,0,Direction.up,this,1);
                 }
                 addBullet(a);
+            }
+        }
+    }
+    private void buildsBullet(int tempx,int tempy)
+    {
+        bullets.remove(warning);
+        for(int i=-2;i<=2;i++)//生成方形子弹的X,Y速度
+        {
+            for(int j=-2;j<=2;j++)
+            {
+                if(i!=0 && j!=0)
+                {
+                    Bullet a=new Bullet(tempx,tempy,i,j,Direction.sector,this,2);
+                    addBullet(a);
+                }
+                else if(i==0 && j!=0)
+                {
+                    Bullet a=new Bullet(tempx,tempy,0,j,Direction.sector,this,2);
+                    addBullet(a);
+                }
+                else if(i!=0 && j==0)
+                {
+                    Bullet a=new Bullet(tempx,tempy,i,0,Direction.sector,this,2);
+                    addBullet(a);
+                }
             }
         }
     }
@@ -241,21 +285,67 @@ public class gamePanel extends Panel{
         {
             case 1://难度1
             {
-                if(allTime<=3000 && allTime%100==0) buildBullet();// 30s以内隔1s生成新一轮子弹
-                if(allTime>3000 && allTime<=6000 && allTime%50==0) buildBullet();// 30s~1min隔0.5s生成新一轮子弹
-                if(allTime>6000 && allTime<=12000 && allTime%25==0) buildBullet();// 1~2min隔0.25s生成新一轮子弹
-                if(allTime>12000 && allTime%20==0) buildBullet();// 2min后隔0.2s生成新一轮子弹
+                if(allTime<=3000 && allTime%100==0) buildBullet();//30s以内隔1s生成新一轮子弹
+                else if(allTime>3000 && allTime<=6000 && allTime%50==0)//30s~1min
+                {
+                    buildBullet();//隔0.5s生成新一轮子弹
+                    if(allTime%700==500) warning();//前两秒制造预警子弹
+                    if(allTime%700==0) buildsBullet(tempx,tempy);//隔7s制造方形子弹阵
+                }
+                else if(allTime>6000 && allTime<=12000 && allTime%25==0)//1~2min
+                {
+                    buildBullet();//隔0.25s生成新一轮子弹
+                    if(allTime%600==400) warning();//前两秒制造预警子弹
+                    if(allTime%600==0) buildsBullet(tempx,tempy);//隔6s制造方形子弹阵
+                }
+                else if(allTime>12000 && allTime%20==0) //2min后
+                {
+                    buildBullet();//隔0.2s生成新一轮子弹
+                    if(allTime%500==300) warning();//前两秒制造预警子弹
+                    if(allTime%500==0) buildsBullet(tempx,tempy);//隔5s制造方形子弹阵
+                }
             }break;
             case 2://难度2
             {
-                if(allTime<=3000 && allTime%50==0) buildBullet();// 30s以内隔0.5s生成新一轮子弹
-                if(allTime>3000 && allTime<=6000 && allTime%25==0) buildBullet();// 30s~1min隔0.25s生成新一轮子弹
-                if(allTime>6000 && allTime%20==0) buildBullet();// 1min后隔0.2s生成新一轮子弹
+                if(allTime<=3000 && allTime%50==0)//30s以内
+                {
+                    buildBullet();//隔0.5s生成新一轮子弹
+                    if(allTime%700==500) warning();//前两秒制造预警子弹
+                    if(allTime%700==0) buildsBullet(tempx,tempy);//隔7s制造方形子弹阵
+                }
+                else if(allTime>3000 && allTime<=6000 && allTime%25==0)//30s~1min
+                {
+                    buildBullet();//隔0.25s生成新一轮子弹
+                    if(allTime%600==400) warning();//前两秒制造预警子弹
+                    if(allTime%600==0) buildsBullet(tempx,tempy);//隔6s制造方形子弹阵
+                }
+                else if(allTime>6000 && allTime%20==0)//1min后
+                {
+                    buildBullet();//隔0.2s生成新一轮子弹
+                    if(allTime%500==300) warning();//前两秒制造预警子弹
+                    if(allTime%500==0) buildsBullet(tempx,tempy);//隔5s制造方形子弹阵
+                }
             }break;
             case 3://难度3
             {
-                if(allTime<=6000 && allTime%25==0) buildBullet();// 1min以内隔0.25s生成新一轮子弹
-                if(allTime>6000 && allTime%20==0) buildBullet();// 1min后隔0.2s生成新一轮子弹
+                if(allTime<=3000 && allTime%40==0)//30s内
+                {
+                    buildBullet();//0.4s生成新一轮子弹
+                    if(allTime%600==400) warning();//前两秒制造预警子弹
+                    if(allTime%600==0) buildsBullet(tempx,tempy);//隔6s制造方形子弹阵
+                }
+                else if(allTime>3000 && allTime<=6000 && allTime%25==0)//30s~1min
+                {
+                    buildBullet();//隔0.25s生成新一轮子弹
+                    if(allTime%500==300) warning();//前两秒制造预警子弹
+                    if(allTime%500==0) buildsBullet(tempx,tempy);//隔5s制造方形子弹阵
+                }
+                else if(allTime>6000 && allTime%21==0)//1min后
+                {
+                    buildBullet();// 隔0.2s生成新一轮子弹
+                    if(allTime%500==300) warning();//前两秒制造预警子弹
+                    if(allTime%500==0) buildsBullet(tempx,tempy);//隔5s制造方形子弹阵
+                }
             }break;
         }
         for (int i = 0; i < bullets.size(); i++) {// 循环遍历子弹集合
@@ -292,7 +382,12 @@ public class gamePanel extends Panel{
 
     private void scoreAdd() {//分数增长
         if(allTime%setDefine.scoreDilution == 0) {//如果循环到了地方
-            score++;
+            switch(level) {//根据难度，得分系数不一样
+                case 1: score += 1;break;
+                case 2: score += 2;break;
+                case 3: score += 4;break;
+                default: score += 1;break;
+            }
         }
         allTime++;
     }

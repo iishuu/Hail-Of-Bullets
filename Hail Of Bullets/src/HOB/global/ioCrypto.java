@@ -93,12 +93,11 @@ public class ioCrypto {//读写加密模块
      */
     private void write() throws IOException{
         str[len] = '\'';//末尾补单引号
-        len += 1;
         out = new FileWriter(file.getName(), false);//覆盖写入
-        for(int i=0; i<len; i++) {
+        for(int i=0; i<=len; i++) {
             tempStr[i] = encrypt(str[i],i);
         }
-        tempStr[len] = encrypt((byte)0, len);//末尾置停止标志
+        tempStr[len+1] = encrypt((byte)0, len);//末尾置停止标志
         out.write(new String(tempStr));//写入
         out.close();
     }

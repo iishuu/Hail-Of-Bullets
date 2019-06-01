@@ -7,6 +7,7 @@ import java.io.IOException;
 public class Selections {//全局设置类
     private int Level = 0;//难度
     public boolean musicOff;//音乐是不是关闭的
+    public boolean haveFun;
     private mainFrame frame;
 
     /**
@@ -81,6 +82,9 @@ public class Selections {//全局设置类
             musicOff = false;
         } else musicOff = true;
         setLevel(frame.data.searchLong(stringConst.optionKey[1]));
+        if(frame.data.searchLong(stringConst.optionKey[2]) == 0){
+            setFun(false);
+        } else setFun(true);
     }
 
     /**
@@ -92,5 +96,25 @@ public class Selections {//全局设置类
             return stringConst.optionPanel[1];
         else
             return stringConst.optionPanel[2];
+    }
+
+    public void setFun(boolean fun) {
+        this.haveFun = fun;
+    }
+
+    public int getFun() {
+        if(haveFun) return 1;
+        else return 0;
+    }
+
+    public void switchFun() {
+        if(haveFun) haveFun = false;
+        else haveFun = true;
+    }
+
+    public String ifFun() {
+        if(haveFun){
+            return stringConst.optionPanel[5];
+        }else return stringConst.optionPanel[4];
     }
 }

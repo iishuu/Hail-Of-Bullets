@@ -115,7 +115,6 @@ public class startPanel extends Panel {
      */
     @Override
     public void keyPressed(KeyEvent e) {
-        //todo:鼠标选择
         int code = e.getKeyCode();// 获取按下的按键值
         switch (code) {// 判断按键值
             case KeyEvent.VK_UP:// 如果按下的是“↑”

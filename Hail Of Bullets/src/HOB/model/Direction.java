@@ -2,7 +2,6 @@ package HOB.model;
 
 public enum Direction //对方向的枚举
 {
-    //todo：增加斜的四个方向
     /**
      * 上
      */
@@ -19,5 +18,9 @@ public enum Direction //对方向的枚举
      * 左
      */
     left,
+    /**
+     * 斜率为k的
+     */
+    sector,
 }
 

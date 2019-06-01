@@ -26,7 +26,8 @@ public class optionPanel extends Panel {
 
     private final int y1 = startY,
             y2 = startY + 2*offsetY,
-            y3 = startY + 4*offsetY; //选择框可以选择的两个位置
+            y3 = startY + 4*offsetY,
+            y4 = startY + 6*offsetY; //选择框可以选择的两个位置
     private int selectBoxY = y1;
     private mainFrame frame;// 主窗体
     private Panel backPanel;//调用它的界面，用于避免内存爆掉
@@ -42,7 +43,8 @@ public class optionPanel extends Panel {
         g.setColor(Color.BLACK);// 使用黑色
         g.drawString(stringConst.optionPanel[0] + frame.selection.getLevel(1), startX, y1);// 绘制第一行文字
         g.drawString(frame.selection.Music(), startX, y2);// 绘制第二行文字
-        g.drawString(stringConst.optionPanel[3], startX, y3);// 绘制第三行文字
+        g.drawString(frame.selection.ifFun(), startX, y3);// 绘制第二行文字
+        g.drawString(stringConst.optionPanel[3], startX, y4);// 绘制第四行文字
         g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
 
     }
@@ -71,6 +73,7 @@ public class optionPanel extends Panel {
     private void saveOptions() throws IOException {
         frame.data.writeInt(stringConst.optionKey[0], frame.selection.getMusic());
         frame.data.writeInt(stringConst.optionKey[1], frame.selection.getLevel(0));
+        frame.data.writeInt(stringConst.optionKey[2], frame.selection.getFun());
     }
 
     /**
@@ -94,9 +97,10 @@ public class optionPanel extends Panel {
             case KeyEvent.VK_UP:// 如果按下的是“↑”
                 sound.play(urls.CLICK_SOUND_MUSIC);
                 switch (selectBoxY) {
-                    case y1 : selectBoxY = y3;break;
+                    case y1 : selectBoxY = y4;break;
                     case y2 : selectBoxY = y1;break;
                     case y3 : selectBoxY = y2;break;
+                    case y4 : selectBoxY = y3;break;
                     default : selectBoxY = y1;break;
                 }
                 repaint();// 按键按下之后，需要重新绘图
@@ -107,7 +111,8 @@ public class optionPanel extends Panel {
                 switch (selectBoxY) {
                     case y1 : selectBoxY = y2;break;
                     case y2 : selectBoxY = y3;break;
-                    case y3 : selectBoxY = y1;break;
+                    case y3 : selectBoxY = y4;break;
+                    case y4 : selectBoxY = y1;break;
                     default : selectBoxY = y1;break;
                 }
                 repaint();// 按键按下之后，需要重新绘图
@@ -118,7 +123,8 @@ public class optionPanel extends Panel {
                 switch (selectBoxY) {
                     case y1 : frame.selection.addLevel();break;//难度增加（循环）
                     case y2 : frame.selection.switchMusic();break;//切换音乐开关
-                    case y3 :
+                    case y3 : frame.selection.switchFun();break;
+                    case y4 :
                         try {
                             gotoBackPanel();
                         } catch (IOException e1) {

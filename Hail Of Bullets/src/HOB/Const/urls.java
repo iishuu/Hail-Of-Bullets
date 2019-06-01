@@ -10,8 +10,10 @@ public class urls {//所有会用到的地址
     public static final String GAME_BACKGROUND_IMAGE_3 = "./image/game_background_3.png";//游戏界面背景
     public static final String PAUSE_BACKGROUND_IMAGE_URL = "./image/pause_background.png";//背景
 
-    public static final String CHARACTER_FUN_IMAGE_URL = "./image/huajiCharacter.png";
-    public static final String BULLET_IMAGE_URL = "./image/bullet.png";
+    public static final String CHARACTER_FUN_IMAGE_URL = "./image/huajiCharacter.png";//滑稽贴图
+    public static final String CHARACTER_IMAGE_URL = "./image/character.png";
+    public static final String BULLET_IMAGE_URL1 = "./image/bullet.png";
+    public static final String BULLET_IMAGE_URL2 = "./image/s_bullet.png";
 
     //存档存储位置
     public static final String dataUrl = "./data.HOB";
