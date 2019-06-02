@@ -8,32 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="037c1ef1-af55-4157-82db-20a7545f7031" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/bullet.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/bullet.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/character.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/game_background_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/game_background_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/game_background_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/game_background_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/game_background_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/game_background_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/huajiCharacter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/login_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/login_background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/select_box.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/select_box.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/Const/setDefine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/Const/setDefine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/Const/urls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/Const/urls.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/gamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/gamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/infoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/infoPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/optionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/optionPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/rankPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/frame/rankPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/model/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/model/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/model/character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hail Of Bullets/HOB/model/character.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.HOB" beforeDir="false" afterPath="$PROJECT_DIR$/data.HOB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HOB/Const/setDefine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/Const/setDefine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOB/Const/urls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/Const/urls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOB/frame/gameOverPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/gameOverPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HOB/frame/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/gamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOB/frame/infoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/infoPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOB/frame/optionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/optionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOB/frame/pausePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/pausePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOB/frame/rankPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/rankPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOB/frame/startPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/frame/startPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOB/model/character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOB/model/character.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,15 +26,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="13" column="92" selection-start-line="13" selection-start-column="92" selection-end-line="13" selection-end-column="92" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HOB/frame/rankPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -81,6 +49,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HOB/model/character.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1353">
+              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HOB/frame/pausePanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
@@ -90,10 +67,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HOB/frame/startPanel.java">
+        <entry file="file://$PROJECT_DIR$/src/HOB/Const/stringConst.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="13" column="75" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/HOB/Const/setDefine.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="164">
-              <caret line="67" column="8" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="68" selection-end-column="4" />
+              <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -108,19 +94,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HOB/Const/setDefine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/HOB/frame/gamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="382" column="16" selection-start-line="382" selection-start-column="16" selection-end-line="382" selection-end-column="16" />
+            <state relative-caret-position="-369">
+              <caret line="379" column="10" selection-start-line="379" selection-start-column="10" selection-end-line="379" selection-end-column="10" />
               <folding>
                 <element signature="e#2606#2607#0" expanded="true" />
                 <element signature="e#2679#2680#0" expanded="true" />
@@ -156,7 +133,6 @@
         <option value="$PROJECT_DIR$/src/HOB/model/Direction.java" />
         <option value="$PROJECT_DIR$/src/HOB/global/ioCrypto.java" />
         <option value="$PROJECT_DIR$/src/HOB/model/character.java" />
-        <option value="$PROJECT_DIR$/src/HOB/Const/setDefine.java" />
         <option value="$PROJECT_DIR$/src/HOB/frame/startPanel.java" />
         <option value="$PROJECT_DIR$/src/HOB/frame/rankPanel.java" />
         <option value="$PROJECT_DIR$/src/HOB/frame/optionPanel.java" />
@@ -165,6 +141,7 @@
         <option value="$PROJECT_DIR$/src/HOB/frame/gameOverPanel.java" />
         <option value="$PROJECT_DIR$/src/HOB/frame/infoPanel.java" />
         <option value="$PROJECT_DIR$/src/HOB/frame/gamePanel.java" />
+        <option value="$PROJECT_DIR$/src/HOB/Const/setDefine.java" />
       </list>
     </option>
   </component>
@@ -281,18 +258,18 @@
       <updated>1559325327858</updated>
       <workItem from="1559325330287" duration="1062000" />
       <workItem from="1559356891507" duration="8171000" />
-      <workItem from="1559453949055" duration="6391000" />
+      <workItem from="1559453949055" duration="8701000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15624000" />
+    <option name="totallyTimeSpent" value="17934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="69" y="-7" width="1474" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25706214" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25706214" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -301,7 +278,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -398,31 +375,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HOB/model/character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HOB/Const/stringConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="13" column="75" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HOB/Const/setDefine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HOB/frame/startPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
-          <caret line="67" column="8" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="68" selection-end-column="4" />
+          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="68" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -477,8 +433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HOB/frame/gamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="382" column="16" selection-start-line="382" selection-start-column="16" selection-end-line="382" selection-end-column="16" />
+        <state relative-caret-position="-369">
+          <caret line="379" column="10" selection-start-line="379" selection-start-column="10" selection-end-line="379" selection-end-column="10" />
           <folding>
             <element signature="e#2606#2607#0" expanded="true" />
             <element signature="e#2679#2680#0" expanded="true" />
@@ -487,6 +443,27 @@
             <element signature="e#14260#14261#0" expanded="true" />
             <element signature="e#14295#14296#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HOB/model/character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1353">
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HOB/Const/stringConst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="13" column="75" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HOB/Const/setDefine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
         </state>
       </provider>
     </entry>

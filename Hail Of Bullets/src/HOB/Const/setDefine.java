@@ -8,7 +8,7 @@ public class setDefine {//这是一些硬编码的数据
     public static final int freshTime = 10;//游戏帧刷新时间间隔，毫秒为单位。10即为100FPS
     public static final int scoreDilution = 25;//分数稀释倍数，25即为每25帧增长一点分数
     public static final int characterSpeed = 3;//角色移动速度
-    public static final int edgeWidth = 50;//屏幕右边界的偏移
+    public static final int edgeWidth = 35;//屏幕右边界的偏移
     public static final int edgeHeight = 75;//屏幕下边界的偏移
     public static final int characterWidth = 20;//角色贴图宽度
     public static final int characterHeight = 35;//角色贴图高度
