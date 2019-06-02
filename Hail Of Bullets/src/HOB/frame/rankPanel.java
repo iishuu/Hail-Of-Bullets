@@ -43,7 +43,8 @@ public class rankPanel extends Panel {
         g.drawString(stringConst.rankPanel[1] + highestScore, startX - 3*offsetX, y2);// 绘制第二行文字，最高分
         g.drawString(stringConst.rankPanel[2] + lastScore, startX - 3*offsetX, y3);// 绘制第三行文字，上次得分
         g.drawString(stringConst.rankPanel[3], startX, y4);// 绘制第四行文字
-        g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
+        g.drawImage(selectBox, startX - 3*offsetX, selectBoxY - (4*offsetY)/3, this);
+
 
     }
 
@@ -61,7 +62,7 @@ public class rankPanel extends Panel {
         this.backFrame = back;
         addListener();// 添加组件监听
         try {
-            backGround = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+            backGround = ImageIO.read(new File(urls.MENU_BACKGROUND_IMAGE_URL));// 读取背景图片
             selectBox = ImageIO.read(new File(urls.SELECT_BOX_IMAGE_URL));// 读取选择框图标
         } catch (IOException e) {
             e.printStackTrace();

@@ -45,8 +45,7 @@ public class optionPanel extends Panel {
         g.drawString(frame.selection.Music(), startX, y2);// 绘制第二行文字
         g.drawString(frame.selection.ifFun(), startX, y3);// 绘制第二行文字
         g.drawString(stringConst.optionPanel[3], startX, y4);// 绘制第四行文字
-        g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
-
+        g.drawImage(selectBox, startX - 3*offsetX, selectBoxY - (4*offsetY)/3, this);
     }
 
     private void addListener() {
@@ -63,7 +62,7 @@ public class optionPanel extends Panel {
         this.backPanel = back;
         addListener();// 添加组件监听
         try {
-            backGround = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+            backGround = ImageIO.read(new File(urls.MENU_BACKGROUND_IMAGE_URL));// 读取背景图片
             selectBox = ImageIO.read(new File(urls.SELECT_BOX_IMAGE_URL));// 读取选择框图标
         } catch (IOException e) {
             e.printStackTrace();

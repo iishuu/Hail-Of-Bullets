@@ -17,7 +17,7 @@ public class infoPanel extends Panel {
     private static final int startX = setDefine.width/2-3*offsetX;//所有x坐标的偏移起点
 
     private static final int offsetY = setDefine.height/20;//所有y坐标的偏移量
-    private static final int startY = setDefine.height/4 - 2*offsetY;//所有y坐标的偏移起点
+    private static final int startY = setDefine.height/4 - 3*offsetY;//所有y坐标的偏移起点
 
     private Image backGround;// 背景图片
     private Image selectBox;//选择框图片
@@ -39,9 +39,9 @@ public class infoPanel extends Panel {
             startY + 4*offsetY,
             startY + 6*offsetY,
             startY + 8*offsetY,
-            startY + 10*offsetY,
-            startY + 12*offsetY,
-            startY + 14*offsetY}; //文字纵坐标
+            startY + 9*offsetY,
+            startY + 11*offsetY,
+            startY + 13*offsetY}; //文字纵坐标
     private int selectBoxY = y[7];//框框初始位置
     private mainFrame frame;// 主窗体
     private startPanel backFrame;//调用它的界面，用于避免内存爆掉
@@ -54,8 +54,7 @@ public class infoPanel extends Panel {
         for(int i=0; i<stringConst.infoPanel.length; i++) {
             g.drawString(stringConst.infoPanel[i], startX - offset[i], y[i]);// 绘制第i行文字
         }
-        g.drawImage(selectBox, startX-20 , selectBoxY - offsetY, this);
-
+        g.drawImage(selectBox, startX - 2*offsetX, selectBoxY - (4*offsetY)/3, this);
     }
 
     private void addListener() {
@@ -72,7 +71,7 @@ public class infoPanel extends Panel {
         this.backFrame = back;
         addListener();// 添加组件监听
         try {
-            backGround = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+            backGround = ImageIO.read(new File(urls.MENU_BACKGROUND_IMAGE_URL));// 读取背景图片
             selectBox = ImageIO.read(new File(urls.SELECT_BOX_IMAGE_URL));// 读取选择框图标
         } catch (IOException e) {
             e.printStackTrace();

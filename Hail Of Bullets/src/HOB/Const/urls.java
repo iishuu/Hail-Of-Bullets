@@ -3,15 +3,18 @@ package HOB.Const;
 public class urls {//所有会用到的地址
 
     //这是所调用的图片的地址
-    public static final String LOGIN_BACKGROUD_IMAGE_URL = "./image/login_background.png";//背景
+    public static final String LOGIN_BACKGROUND_IMAGE_URL = "./image/login_background.png";//背景
+    public static final String MENU_BACKGROUND_IMAGE_URL = "./image/menu_background.png";//背景
     public static final String SELECT_BOX_IMAGE_URL = "./image/select_box.png";//选择框
     public static final String GAME_BACKGROUND_IMAGE_1 = "./image/game_background_1.png";//游戏界面背景
     public static final String GAME_BACKGROUND_IMAGE_2 = "./image/game_background_2.png";//游戏界面背景
     public static final String GAME_BACKGROUND_IMAGE_3 = "./image/game_background_3.png";//游戏界面背景
     public static final String PAUSE_BACKGROUND_IMAGE_URL = "./image/pause_background.png";//背景
 
-    public static final String CHARACTER_FUN_IMAGE_URL = "./image/huajiCharacter.png";//滑稽贴图
-    public static final String CHARACTER_IMAGE_URL = "./image/character.png";
+    public static final String CHARACTER_FUN_RIGHT_IMAGE_URL = "./image/huajiCharacter_right.png";//滑稽贴图，朝向右
+    public static final String CHARACTER_FUN_LEFT_IMAGE_URL = "./image/huajiCharacter_left.png";//滑稽贴图，朝向左
+    public static final String CHARACTER_RIGHT_IMAGE_URL = "./image/character_right.png";//正常人物贴图，朝向右
+    public static final String CHARACTER_LEFT_IMAGE_URL = "./image/character_left.png";//正常人物贴图，朝向左
     public static final String BULLET_IMAGE_URL1 = "./image/bullet.png";
     public static final String BULLET_IMAGE_URL2 = "./image/s_bullet.png";
 

@@ -1,5 +1,6 @@
 package HOB.model;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -8,7 +9,7 @@ import HOB.Const.setDefine;
 
 import javax.imageio.ImageIO;
 
-public class character extends DisplayableImage {
+public class character{
     //角色移动速度
     private int speed = setDefine.characterSpeed;
 
@@ -20,20 +21,36 @@ public class character extends DisplayableImage {
 
     private int frameWidth, frameHeight;
 
-    private String imageUrl;
+    private String imageUrl_l;
+    private String imageUrl_r;
+
+    private Image image_left;
+    private Image image_right;
 
     public character(int characterX, int characterY, boolean haveFun) {
         this.characterX = characterX;
         this.characterY = characterY;
         frameWidth = setDefine.width;
         frameHeight = setDefine.height;
-        if(haveFun) imageUrl = urls.CHARACTER_FUN_IMAGE_URL;
-        else imageUrl = urls.CHARACTER_IMAGE_URL;
+        if(haveFun) {
+            imageUrl_l = urls.CHARACTER_FUN_LEFT_IMAGE_URL;
+            imageUrl_r = urls.CHARACTER_FUN_RIGHT_IMAGE_URL;
+        }
+        else {
+            imageUrl_l = urls.CHARACTER_LEFT_IMAGE_URL;
+            imageUrl_r = urls.CHARACTER_RIGHT_IMAGE_URL;
+        }
         try {
-            this.image = ImageIO.read(new File(imageUrl));// 读取背景图片
+            image_left = ImageIO.read(new File(imageUrl_l));// 读取背景图片
+            image_right = ImageIO.read(new File(imageUrl_r));// 读取背景图片
          } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Image getImage(boolean toLeft) {
+        if(toLeft) return image_left;
+        else return image_right;
     }
 
     public int getX(){

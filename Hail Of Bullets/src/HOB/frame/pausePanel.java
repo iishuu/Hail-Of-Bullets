@@ -45,8 +45,7 @@ public class pausePanel extends Panel {//todo:恢复计时器
         g.drawString(frame.selection.Music(), startX, y1);// 绘制第二行文字
         g.drawString(stringConst.pausePanel[1], startX, y2);// 绘制第三行文字
         g.drawString(stringConst.pausePanel[2], startX, y3);// 绘制第四行文字
-        g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
-
+        g.drawImage(selectBox, startX - 3*offsetX, selectBoxY - (4*offsetY)/3, this);
     }
 
     private void addListener() {

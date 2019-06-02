@@ -18,7 +18,7 @@ public class startPanel extends Panel {
     private static final int startX = setDefine.width/4 + 5*offsetX;//所有x坐标的偏移起点
 
     private static final int offsetY = setDefine.height/20;//所有y坐标的偏移量
-    private static final int startY = setDefine.height/4 + 3*offsetY;//所有y坐标的偏移起点
+    private static final int startY = setDefine.height/4 + 2*offsetY;//所有y坐标的偏移起点
 
     private static final long serialVersionUID = 1L;
     private Image backGround;// 背景图片
@@ -47,7 +47,7 @@ public class startPanel extends Panel {
         sound = new audioPlayer(frame.selection);//实例化音效
         addListener();// 添加组件监听
         try {//异常处理，没有的话会报错
-            backGround = ImageIO.read(new File(urls.LOGIN_BACKGROUD_IMAGE_URL));// 读取背景图片
+            backGround = ImageIO.read(new File(urls.LOGIN_BACKGROUND_IMAGE_URL));// 读取背景图片
             selectBox = ImageIO.read(new File(urls.SELECT_BOX_IMAGE_URL));// 读取选择框图标
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,8 +65,7 @@ public class startPanel extends Panel {
         for(int i=0; i<stringConst.startPanel.length; i++) {
             g.drawString(stringConst.startPanel[i], startX, y[i]);// 绘制第i行文字
         }
-        g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
-
+        g.drawImage(selectBox, startX - 3*offsetX, selectBoxY - (4*offsetY)/3, this);
     }
     /**
      * 跳转游戏面板

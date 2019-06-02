@@ -366,7 +366,7 @@ public class gamePanel extends Panel{
 
     private void paintPlayer(Graphics g) {    //绘制角色
         movePlayer();
-        g.drawImage(player.getImage(), player.getX(), player.getY(),this);
+        g.drawImage(player.getImage(left_key), player.getX(), player.getY(),this);
     }
 
     private void movePlayer() {
@@ -385,7 +385,8 @@ public class gamePanel extends Panel{
             switch(level) {//根据难度，得分系数不一样
                 case 1: score += 1;break;
                 case 2: score += 2;break;
-                case 3: score += 4;break;
+                case 3: score += 3
+                ;break;
                 default: score += 1;break;
             }
         }

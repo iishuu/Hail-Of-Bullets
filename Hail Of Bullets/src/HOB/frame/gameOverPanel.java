@@ -46,7 +46,7 @@ public class gameOverPanel extends Panel {
         g.drawString(stringConst.gameOverPanel[1] + highestScore, startX - 3*offsetX, y2);// 绘制第二行文字，最高分
         g.drawString(stringConst.gameOverPanel[2] + lastScore, startX - 3*offsetX, y3);// 绘制第三行文字，上次得分
         g.drawString(stringConst.gameOverPanel[3], startX, y4);// 绘制第四行文字
-        g.drawImage(selectBox, startX - offsetX, selectBoxY - offsetY, this);
+        g.drawImage(selectBox, startX - 3*offsetX, selectBoxY - (4*offsetY)/3, this);
         music = frame.musicPlayer;
         music.play(urls.GAME_OVER_MUSIC);
     }
