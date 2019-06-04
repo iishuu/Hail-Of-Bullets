@@ -76,10 +76,6 @@ public class gamePanel extends Panel{
         }
     }
 
-    public Panel getBackFrame() {
-        return backFrame;
-    }
-
     private void addListener() {
         frame.addKeyListener(this);// 主窗体载入键盘监听，本类已实现KeyListener接口
     }
@@ -236,10 +232,7 @@ public class gamePanel extends Panel{
     {
         for(int j=1;j<=4;j++)//上下左右四个方向生成子弹
         {
-            int temp=1;//(int)(Math.random()*5)*(allTime/3000+1);
-            for(int i=1;i<=temp;i++)//每隔30s增加一次难度，每次+5
-            {
-                Bullet a = null;
+            Bullet a = null;
                 switch (j)
                 {
                     case 1 :a = new Bullet(0,(int) (Math.random() * height),(int)(Math.random()*maxSpeed)+1,0,Direction.right,this,1);
@@ -250,8 +243,7 @@ public class gamePanel extends Panel{
                         break;
                     case 4 :a = new Bullet((int)(Math.random() * width),height,(int)(Math.random()*maxSpeed)+1,0,Direction.up,this,1);
                 }
-                addBullet(a);
-            }
+            addBullet(a);
         }
     }
     private void buildsBullet(int tempx,int tempy)

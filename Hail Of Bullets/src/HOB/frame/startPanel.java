@@ -37,7 +37,7 @@ public class startPanel extends Panel {
     private int selectBoxY = y1;//初始化为1号坑
     private mainFrame frame;
     /**
-     * 登陆面板构造方法
+     * 登录面板构造方法
      *
      * @param frame
      *              主窗体
