@@ -19,6 +19,8 @@ public class character{
     //绘制角色左上角坐标
     private int characterX, characterY;
 
+    private int characterWidth, characterHeight;
+
     private int frameWidth, frameHeight;
 
     private String imageUrl_l;
@@ -32,13 +34,18 @@ public class character{
         this.characterY = characterY;
         frameWidth = setDefine.width;
         frameHeight = setDefine.height;
+
         if(haveFun) {
             imageUrl_l = urls.CHARACTER_FUN_LEFT_IMAGE_URL;
             imageUrl_r = urls.CHARACTER_FUN_RIGHT_IMAGE_URL;
+            characterWidth = setDefine.characterWidth_HJ;
+            characterHeight = setDefine.characterHeight_HJ;
         }
         else {
             imageUrl_l = urls.CHARACTER_LEFT_IMAGE_URL;
             imageUrl_r = urls.CHARACTER_RIGHT_IMAGE_URL;
+            characterWidth = setDefine.characterWidth;
+            characterHeight = setDefine.characterHeight;
         }
         try {
             image_left = ImageIO.read(new File(imageUrl_l));// 读取背景图片
@@ -85,4 +92,11 @@ public class character{
         this.live = live;
     }
 
+    public int getCharacterWidth() {
+        return this.characterWidth;
+    }
+
+    public int getCharacterHeight() {
+        return this.characterHeight;
+    }
 }

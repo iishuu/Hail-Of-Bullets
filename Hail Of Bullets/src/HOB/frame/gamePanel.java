@@ -289,7 +289,7 @@ public class gamePanel extends Panel{
                     buildBullet();//隔0.25s生成新一轮子弹
                     if(allTime%600==400) warning();//前两秒制造预警子弹
                     if(allTime%600==0) buildsBullet(tempx,tempy);//隔6s制造方形子弹阵
-                }
+            }
                 else if(allTime>12000 && allTime%20==0) //2min后
                 {
                     buildBullet();//隔0.2s生成新一轮子弹

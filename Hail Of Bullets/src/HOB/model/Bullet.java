@@ -127,13 +127,13 @@ public class Bullet extends DisplayableImage
      * 击中主角啦
      */
     public void hitCharacter() {
-        if (x + length/2 > man.getX() && x + length/2 < man.getX() + setDefine.characterWidth && y + length/2 > man.getY() && y + length/2 < man.getY() + setDefine.characterHeight)
+        if (x + length/2 > man.getX() && x + length/2 < man.getX() + man.getCharacterWidth() && y + length/2 > man.getY() && y + length/2 < man.getY() + man.getCharacterHeight())
         {//如果子弹中心位置在角色的矩形中。（适当缩小）
             man.setAlive(false);//主角凉凉
         }
     }
     private void moveToBorder() {
-        if (x < 0 || x > width - getWidth() || y < 0 || y > height - getHeight()) {// 如果子弹坐标离开游戏面板
+        if (x < 0 || x > setDefine.width - getWidth() || y < 0  || y > setDefine.height - getHeight()) {// 如果子弹坐标离开游戏面板
             this.dispose();// 销毁子弹
         }
     }
@@ -147,6 +147,6 @@ public class Bullet extends DisplayableImage
      * 获取子弹存活状态
      */
     public boolean isAlive() {
-        return true;
+        return alive;
     }
 }
